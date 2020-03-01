@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -41,6 +43,17 @@ public class DashboardActivity extends AppCompatActivity {
 
         final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, activities);
         mListView.setAdapter(adapter);
+
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String exercise = ((TextView)view).getText().toString();
+                Intent intent = new Intent(DashboardActivity.this, FavoritesActivity.class);
+                intent.putExtra("exercise",exercise);
+                startActivity(intent);
+            }
+        });
 
         inputSearch = (EditText) findViewById(R.id.inputSearch);
 
