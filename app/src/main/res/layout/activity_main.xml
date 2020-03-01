@@ -28,18 +28,6 @@
 
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/favoriteEditText"
-        android:background="@color/white"
-        android:layout_above="@+id/getStartedButton"
-        android:layout_marginBottom="10dp"
-        android:padding="5dp"
-        android:hint="Enter Your Favorite Exercise"
-        android:layout_centerHorizontal="true" />
-
-
 
 
     <Button
