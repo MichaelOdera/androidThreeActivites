@@ -47,7 +47,7 @@
             android:layout_below="@+id/nameEditText"
             android:background="@color/white"
             android:textColor="@color/colorButton"
-            android:text="Submit placeholder" />
+            android:text="Submit name" />
     </LinearLayout>
 
 
