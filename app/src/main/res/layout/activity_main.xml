@@ -26,10 +26,6 @@
         android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
-
-
     <Button
         android:id="@+id/getStartedButton"
         android:layout_width="match_parent"
