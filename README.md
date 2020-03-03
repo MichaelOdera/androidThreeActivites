@@ -18,6 +18,7 @@ In case of any bugs or improvements, contact me through enmail:michogelira@gmail
 
 
 ## Code Beat Badge
+[![codebeat badge](https://codebeat.co/badges/6f1e59f3-01dd-4c59-8ef3-6156600d6668)](https://codebeat.co/projects/github-com-michaelodera-androidthreeactivites-dev)
 
 
 ## Bugs Encountered
