@@ -27,7 +27,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String favoriteExercise = intent.getStringExtra("exercise");
-        mFavoriteExerciseTextView.setText(favoriteExercise + " has been added to your favorite exercises");
+        mFavoriteExerciseTextView.setText(favoriteExercise + " has been added as your favorite Week's Exercise");
         ArrayList<String> favoriteExerciseList =  new ArrayList<>();
         favoriteExerciseList.add(favoriteExercise);
 
