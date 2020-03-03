@@ -34,12 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v){
         if(v == mGetStartedButton){
-
             FragmentManager fm = getSupportFragmentManager();
             RegistrationDialogFragment registerDialogFragment = new RegistrationDialogFragment ();
             registerDialogFragment.show(fm, "registration");
-
-
         }
     }
 

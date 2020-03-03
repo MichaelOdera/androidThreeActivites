@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.myfitnessapp"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -18,6 +18,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android {
+        testOptions {
+            unitTests.includeAndroidResources = true
         }
     }
 
@@ -43,4 +49,8 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation 'androidx.fragment:fragment:1.2.2'
+    debugImplementation 'androidx.fragment:fragment-testing:1.2.2'
+
 }

@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:paddingLeft="70dp"
+        android:id="@+id/appNameTextView"
         android:fontFamily="sans-serif-condensed"
         android:text="Ignite Your Health Journey"
         android:textSize="25dp"
