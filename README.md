@@ -21,6 +21,7 @@ In case of any bugs or improvements, contact me through enmail:michogelira@gmail
 [![codebeat badge](https://codebeat.co/badges/6f1e59f3-01dd-4c59-8ef3-6156600d6668)](https://codebeat.co/projects/github-com-michaelodera-androidthreeactivites-dev)
 
 
+
 ## Bugs Encountered
 There were no major bugs to be encountered and the console would prove to be most helpful in case of any need to log out the errors
 
@@ -43,11 +44,10 @@ The project describes an application which allows a user to enter his name, visi
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-##WITHOUT ANDROID / POJO TESTING
+## WITHOUT ANDROID / POJO TESTING
 Run `gradle run` for a dev server. Navigate to `http://localhost:4567/`. The app will not automatically change if you make any changes white the app is still live. A rerun of the command will b needed in this case.
 
 ## Code scaffolding(POJO)
-
 Run `netstat -pliten |grep java` to check for ports that are being used by java processes. You can also use `gradle run|build`.
 
 ## Build
