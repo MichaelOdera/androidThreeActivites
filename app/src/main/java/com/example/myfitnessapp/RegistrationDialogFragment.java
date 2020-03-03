@@ -56,8 +56,6 @@ public class RegistrationDialogFragment extends DialogFragment {
                         intent.putExtra("userName",gottenUserName);
                         v.getContext().startActivity(intent);
 
-
-
                     }
 
                 });
