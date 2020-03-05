@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Fitness App</string>
+    <string name="action_settings">Settings</string>
+    <string name="timerVal">00:00:00</string>
+    <string name="pauseButtonLabel">Pause</string>
+    <string name="startButtonLabel">Start</string>
 </resources>

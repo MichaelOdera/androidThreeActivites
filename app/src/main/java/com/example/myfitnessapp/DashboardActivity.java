@@ -3,11 +3,13 @@ package com.example.myfitnessapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -19,6 +21,8 @@ import butterknife.ButterKnife;
 
 public class DashboardActivity extends AppCompatActivity {
 
+    private ArrayAdapter mAdapter;
+
     @BindView(R.id.userNameTextView)
     TextView mUserNameTextView;
     @BindView(R.id.listView)
@@ -29,7 +33,7 @@ public class DashboardActivity extends AppCompatActivity {
             "Pull Ups", "Push Ups", "Swimming", "Jogging",
             "Squats", "Banana Jumps", "Weight Lifting", "Hiking",
             "Frog jumps", "Star Jumps", "Skiing",
-            "Commando crawls", "Back Stretching"};
+            "Commando crawls", "Back Stretching", "abs", "Nature walk"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,19 +45,33 @@ public class DashboardActivity extends AppCompatActivity {
         String gottenUserName = intent.getStringExtra("userName");
         mUserNameTextView.setText("Welcome "+ gottenUserName+". \nClick on activity to choose it as your Week's Favorite");
 
-        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, activities);
-        mListView.setAdapter(adapter);
+        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, activities){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view =super.getView(position, convertView, parent);
 
+                TextView textView=(TextView) view.findViewById(android.R.id.text1);
+
+                /*YOUR CHOICE OF COLOR*/
+                textView.setTextColor(Color.rgb(255,79,0));
+                textView.setBackgroundColor(Color.WHITE);
+
+                return view;
+            }
+        };
+        mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                view.setBackgroundColor(getColor(R.color.lightThemeDarkPrimaryColourV3 )) ;
                 String exercise = ((TextView)view).getText().toString();
                 Intent intent = new Intent(DashboardActivity.this, FavoritesActivity.class);
                 intent.putExtra("exercise",exercise);
                 startActivity(intent);
             }
         });
+
 
         inputSearch = (EditText) findViewById(R.id.inputSearch);
 

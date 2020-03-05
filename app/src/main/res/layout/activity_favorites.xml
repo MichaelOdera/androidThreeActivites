@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FavoritesActivity">
@@ -13,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="87dp"
-        android:text="Your Favorite Exercises"
+        android:textColor="@color/white"
+        android:text="Your Favorite Week's Exercise"
         android:textAlignment="center" />
 
     <TextView
@@ -23,22 +25,50 @@
         android:textAlignment="center"
         android:layout_below="@+id/favoriteExercisesHeading"
         android:text="Hello "
-        android:textColor="@color/colorButton"
+        android:textColor="@color/white"
         android:id="@+id/favoriteExerciseTextView"/>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:textColor="@color/colorButton"
-        android:layout_below="@+id/favoriteExerciseTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/listView"
+        android:id="@+id/imageFavorite"
+        android:background="@drawable/rounded_corner"
+        android:layout_below="@+id/favoriteExerciseTextView"
         android:layout_centerHorizontal="true"
         android:src="@drawable/bolt"/>
+
+    <TextView
+        android:id="@+id/timerValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pauseButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="37dp"
+        android:textSize="40sp"
+        android:textColor="#ffffff"
+        android:text="@string/timerVal" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/colorButton"
+        android:background="@color/white"
+        android:layout_marginLeft="38dp"
+        android:text="@string/startButtonLabel" />
+
+    <Button
+        android:id="@+id/pauseButton"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:textColor="@color/colorButton"
+        android:layout_alignBaseline="@+id/startButton"
+        android:layout_alignBottom="@+id/startButton"
+        android:background="@color/white"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="38dp"
+        android:text="@string/pauseButtonLabel" />
 
 </RelativeLayout>

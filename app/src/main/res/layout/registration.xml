@@ -19,9 +19,10 @@
         android:textAlignment="center"
         android:padding="10dp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="192dp"
+        android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
@@ -31,7 +32,6 @@
             android:layout_width="150dp"
             android:layout_marginLeft="20dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nameLabel"
             android:layout_centerHorizontal="true"
             android:background="@color/white"
             android:textAlignment="center"
@@ -41,14 +41,15 @@
 
         <Button
             android:id="@+id/submitNameButton"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_below="@+id/nameEditText"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
             android:background="@color/white"
-            android:textColor="@color/colorButton"
-            android:text="Submit name" />
-    </LinearLayout>
+            android:text="Submit name"
+            android:textColor="@color/colorButton" />
+    </RelativeLayout>
 
 
 

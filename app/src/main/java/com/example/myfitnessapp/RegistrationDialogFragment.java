@@ -52,9 +52,16 @@ public class RegistrationDialogFragment extends DialogFragment {
                         mNameOfUser = (EditText) nameFormLayout.findViewById(R.id.nameEditText);
                         String gottenUserName = mNameOfUser.getText().toString();
                         Log.d("Now this is", gottenUserName);
-                        Intent intent = new Intent(v.getContext(), DashboardActivity.class);
-                        intent.putExtra("userName",gottenUserName);
-                        v.getContext().startActivity(intent);
+                        if(gottenUserName != ""){
+                            Intent intent = new Intent(v.getContext(), DashboardActivity.class);
+                            intent.putExtra("userName",gottenUserName);
+                            v.getContext().startActivity(intent);
+                        }
+                        else{
+                           builder.setTitle("You Need To enter Your name Before Proceeding");
+                           dismiss();
+                        }
+
 
                     }
 
