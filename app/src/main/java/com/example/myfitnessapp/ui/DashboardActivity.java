@@ -52,7 +52,7 @@ public class DashboardActivity extends AppCompatActivity {
 
                 TextView textView=(TextView) view.findViewById(android.R.id.text1);
 
-                /*YOUR CHOICE OF COLOR*/
+                //YOUR CHOICE OF COLOR
                 textView.setTextColor(Color.rgb(255,79,0));
                 textView.setBackgroundColor(Color.WHITE);
 
@@ -81,12 +81,14 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
                 // When user changed the Text
+                inputSearch.setTextColor(Color.rgb(255, 79, 0));
                 adapter.getFilter().filter(cs);
             }
 
             @Override
             public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
                                           int arg3) {
+                inputSearch.setTextColor(Color.rgb(220, 12,1));
             }
 
             @Override

@@ -2,6 +2,7 @@ package com.example.myfitnessapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FavoritesActivity extends AppCompatActivity {
+public class FavoritesActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.favoriteExerciseTextView)
     TextView mFavoriteExerciseTextView;
 //    @BindView(R.id.listView)
@@ -41,6 +42,7 @@ public class FavoritesActivity extends AppCompatActivity {
     long updatedTime = 0L;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,43 +54,14 @@ public class FavoritesActivity extends AppCompatActivity {
         Log.d("This is a tag", favoriteExercise);
         mFavoriteExerciseTextView.setText(favoriteExercise + " has been added as your favorite Week's Exercise");
 
-//        ArrayList<String> favoriteExerciseList =  new ArrayList<>();
-//        favoriteExerciseList.add(favoriteExercise);
-//
-//        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, favoriteExerciseList){
-//            @Override
-//            public View getView(int position, View convertView, ViewGroup parent) {
-//                View view =super.getView(position, convertView, parent);
-//
-//                TextView textView=(TextView) view.findViewById(android.R.id.text1);
-//
-//                /*YOUR CHOICE OF COLOR*/
-//                textView.setTextColor(Color.WHITE);
-//                return view;
-//            }
-//        };
-//        mFavoriteListView.setAdapter(adapter);
 
-        mStartTimerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("got it", "Got Listened to");
-                startingTime = SystemClock.uptimeMillis();
-                TimeCustomHandler.postDelayed(updateTimerThread, 0);
-            }
-        });
-
-        mPauseTimerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timeSwapBuffer += timeInMilliseconds;
-                TimeCustomHandler.removeCallbacks(updateTimerThread);
-            }
-        });
+        mStartTimerButton.setOnClickListener(this);
+        mPauseTimerButton.setOnClickListener(this);
 
 
         updateTimerThread = new Runnable() {
 
+            @SuppressLint("DefaultLocale")
             public void run() {
 
                 timeInMilliseconds = SystemClock.uptimeMillis() - startingTime;
@@ -108,6 +81,21 @@ public class FavoritesActivity extends AppCompatActivity {
         };
 
     }
+
+    @Override
+    public void onClick(View v){
+        if(v == mStartTimerButton){
+            Log.d("got it", "Got Listened to");
+            startingTime = SystemClock.uptimeMillis();
+            TimeCustomHandler.postDelayed(updateTimerThread, 0);
+        }
+
+        if(v == mPauseTimerButton){
+            timeSwapBuffer += timeInMilliseconds;
+            TimeCustomHandler.removeCallbacks(updateTimerThread);
+        }
+    }
+
 
 
 }
