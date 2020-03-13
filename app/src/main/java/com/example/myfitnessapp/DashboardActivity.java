@@ -39,7 +39,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String gottenUserName = intent.getStringExtra("userName");
-        mUserNameTextView.setText("Welcome "+ gottenUserName+". \nClick on activity to add it to your favorites List");
+        mUserNameTextView.setText("Welcome "+ gottenUserName+". \nClick on activity to choose it as your Week's Favorite");
 
         final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, activities);
         mListView.setAdapter(adapter);
