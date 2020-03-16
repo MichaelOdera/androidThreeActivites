@@ -2,18 +2,18 @@ package com.example.myfitnessapp;
 
 import android.content.Intent;
 
-import androidx.fragment.app.FragmentManager;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
+import com.example.myfitnessapp.ui.MainActivity;
+import com.example.myfitnessapp.ui.RegistrationDialogFragment;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.util.regex.Matcher;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -64,14 +64,14 @@ public class MainActivityInstrumentationTest {
 
     @Test
     public void checkIfPositiveButtonIsClickedCorrectlyOnDialogFragment(){
-        onView(withId(R.id.getStartedButton)).perform(click());
+        onView(withId(R.id.navigation_activities)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
     }
 
     @Test
     public void checkIfEditTextReceivesDataCorrectly(){
         String userName = "Clement";
-        onView(withId(R.id.getStartedButton)).perform(click());
+        onView(withId(R.id.navigation_activities)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
         onView(withId(R.id.nameEditText)).perform(typeText(userName)).perform(closeSoftKeyboard());
     }
@@ -79,7 +79,7 @@ public class MainActivityInstrumentationTest {
     @Test
     public void checkIfNameEnteredIsTransmittedToTheNextActivityCorrectly(){
         String userName = "Clement";
-        onView(withId(R.id.getStartedButton)).perform(click());
+        onView(withId(R.id.navigation_activities)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
         onView(withId(R.id.nameEditText)).perform(typeText(userName)).perform(closeSoftKeyboard());
 
@@ -91,7 +91,7 @@ public class MainActivityInstrumentationTest {
     @Test
     public void checkIfExerciseIsSelectedIsAddedToFavoriteList(){
         String userName = "Clement";
-        onView(withId(R.id.getStartedButton)).perform(click());
+        onView(withId(R.id.navigation_activities)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
         onView(withId(R.id.nameEditText)).perform(typeText(userName)).perform(closeSoftKeyboard());
 
