@@ -1,4 +1,10 @@
-package com.example.myfitnessapp;
+package com.example.myfitnessapp.models;
+
+import com.example.myfitnessapp.BuildConfig;
+
+import org.parceler.Parcel;
+
+@Parcel
 
 public class Constants {
         public static final String YELP_BASE_URL = "https://api.yelp.com/v3/";
