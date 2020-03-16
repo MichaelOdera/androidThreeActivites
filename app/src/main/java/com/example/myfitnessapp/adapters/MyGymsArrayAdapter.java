@@ -1,4 +1,4 @@
-package com.example.myfitnessapp;
+package com.example.myfitnessapp.adapters;
 
 import android.content.Context;
 import android.view.View;
