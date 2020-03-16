@@ -12,9 +12,9 @@ import com.example.myfitnessapp.ui.GymnasiumDetailFragment;
 
 import java.util.List;
 
-public class GymnasiumPageAdapter extends FragmentPagerAdapter {
+public class GymnasiumPagerAdapter extends FragmentPagerAdapter {
     private List<Business> mGymnasiums;
-    public GymnasiumPageAdapter(@NonNull FragmentManager fm, int behavior, List<Business> gymnasiums) {
+    public GymnasiumPagerAdapter(@NonNull FragmentManager fm, int behavior, List<Business> gymnasiums) {
         super(fm, behavior);
         mGymnasiums = gymnasiums;
     }
@@ -31,5 +31,7 @@ public class GymnasiumPageAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public CharSequence 
+    public CharSequence getPageTitle(int position){
+        return mGymnasiums.get(position).getName();
+    }
 }
