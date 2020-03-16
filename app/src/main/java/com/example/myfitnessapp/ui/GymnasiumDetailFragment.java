@@ -1,21 +1,69 @@
 package com.example.myfitnessapp.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.myfitnessapp.R;
+import com.example.myfitnessapp.models.Business;
+import com.example.myfitnessapp.models.Category;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.zip.Inflater;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
- *
  */
-public class GymnasiumDetailFragment extends Fragment {
+public class GymnasiumDetailFragment extends Fragment implements View.OnClickListener{
+    @BindView(R.id.gymnasiumNameTextView)
+    TextView gymnasiumName;
+    @BindView(R.id.gymnasiumImageView)
+    ImageView gymnasiumImage;
+    @BindView(R.id.ratingTextView) TextView gymnasiumRating;
+    @BindView(R.id.categoryTextView) TextView gymnasiumService;
+    @BindView(R.id.phoneTextView) TextView gymnasiumPhoneNumber;
+    @BindView(R.id.addressTextView) TextView gymnasiumAddress;
+    @BindView(R.id.saveGymnasiumButton)
+    Button saveGymnasiumButton;
+    @BindView(R.id.websiteTextView) TextView gymnasiumWebSite;
+
+    private Business mGymnasium;
+
+
 
     public GymnasiumDetailFragment() {
         // Required empty public constructor
+    }
+
+    public static GymnasiumDetailFragment newInstance(Business gym){
+        GymnasiumDetailFragment gymnasiumDetailFragment = new GymnasiumDetailFragment();
+        Bundle arguments = new Bundle();
+        arguments.putParcelable("gym", Parcels.wrap(gym));
+        gymnasiumDetailFragment.setArguments(arguments);
+        return gymnasiumDetailFragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mGymnasium = Parcels.unwrap(getArguments().getParcelable("gym"));
+
     }
 
 
@@ -23,6 +71,56 @@ public class GymnasiumDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gymnasium_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_gymnasium_detail, container, false);
+        ButterKnife.bind(this, view);
+        Picasso.get().load(mGymnasium.getImageUrl()).into(gymnasiumImage);
+
+
+        List<String> categories = new ArrayList<>();
+
+        for(Category category: mGymnasium.getCategories()){
+            categories.add(category.getTitle());
+        }
+
+
+        gymnasiumName.setText(mGymnasium.getName());
+        gymnasiumService.setText(android.text.TextUtils.join(",",categories));
+        gymnasiumPhoneNumber.setText(mGymnasium.getPhone());
+        gymnasiumRating.setText(Double.toString(mGymnasium.getRating())+"/7");
+        gymnasiumAddress.setText(mGymnasium.getLocation().toString());
+
+
+        gymnasiumPhoneNumber.setOnClickListener(this);
+        gymnasiumAddress.setOnClickListener(this);
+        gymnasiumWebSite.setOnClickListener(this);
+        gymnasiumImage.setOnClickListener(this);
+
+        return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v == gymnasiumImage){
+
+        }
+
+        if(v == gymnasiumWebSite){
+            Intent webSiteIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mGymnasium.getUrl()));
+            startActivity(webSiteIntent);
+        }
+        if(v == gymnasiumAddress){
+            Intent addressIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("geo:" + mGymnasium.getCoordinates().getLatitude()
+                            + "," + mGymnasium.getCoordinates().getLongitude()
+                            + "?q=(" + mGymnasium.getName() + ")"));
+            startActivity(addressIntent);
+        }
+        if(v == gymnasiumPhoneNumber){
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel:" + mGymnasium.getPhone()));
+            startActivity(phoneIntent);
+        }
+
     }
 }
