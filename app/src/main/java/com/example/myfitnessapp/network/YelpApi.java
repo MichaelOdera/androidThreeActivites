@@ -1,4 +1,4 @@
-package com.example.myfitnessapp;
+package com.example.myfitnessapp.network;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
