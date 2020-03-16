@@ -1,4 +1,4 @@
-package com.example.myfitnessapp;
+package com.example.myfitnessapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.myfitnessapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +33,7 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v){
         if(v == mGymSearchButton ){
             String searchGymLocation = mGymSearchEditText.getText().toString();
-            Intent gymIntent = new Intent(SearchGymsActivity.this, GymnasiumsActivity.class);
+            Intent gymIntent = new Intent(SearchGymsActivity.this, GymnasiumListActivity.class);
             gymIntent.putExtra("gymLocation", searchGymLocation);
             startActivity(gymIntent);
         }
