@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:background="@color/lightThemePrimaryColourV3"
-    package="com.example.myfitnessapp">
+    package="com.example.myfitnessapp"
+    app:background="@color/lightThemePrimaryColourV3">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,18 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FavoritesActivity">
+        <activity android:name=".ui.GymnasiumDetailActivity"></activity>
+        <activity android:name=".ui.SearchGymsActivity"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity android:name=".ui.GymnasiumListActivity" />
+        <activity android:name=".ui.FavoritesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.myfitnessapp.DashboardActivity"></meta-data>
+                android:value="com.example.myfitnessapp.ui.DashboardActivity" />
         </activity>
-        <activity android:name=".DashboardActivity">
+        <activity android:name=".ui.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.myfitnessapp.MainActivity"></meta-data>
+                android:value="com.example.myfitnessapp.ui.MainActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
