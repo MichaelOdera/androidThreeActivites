@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opticalInsetRight="@dimen/material_emphasis_high_type"
+    android:shape="rectangle">
 
-</selector>
+    <solid
+        android:color="@color/white" />
+
+    <corners
+        android:bottomRightRadius="12dp"
+        android:bottomLeftRadius="12dp"
+        android:topLeftRadius="12dp"
+        android:topRightRadius="12dp"/>
+
+    <stroke
+        android:color="@color/colorButton"
+        android:width="1dp"/>
+</shape>
