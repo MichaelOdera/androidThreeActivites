@@ -1,4 +1,4 @@
-package com.example.myfitnessapp;
+package com.example.myfitnessapp.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,9 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
+
+import com.example.myfitnessapp.R;
+import com.example.myfitnessapp.ui.DashboardActivity;
 
 public class RegistrationDialogFragment extends DialogFragment {
 
