@@ -6,7 +6,7 @@
     <string name="startButtonLabel">Start</string>
     <string name="enter_location">Enter location...</string>
     <string name="enter_your_location">Enter Your Location</string>
-    <string name="zip_code">Zip Code...</string>
+    <string name="zip_code">Location/Zip Code...</string>
     <string name="todo">TODO</string>
     <string name="submit_location">Submit Location</string>
     <string name="activities">ACTIVITIES</string>
