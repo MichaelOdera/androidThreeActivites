@@ -1,17 +1,16 @@
 package com.example.myfitnessapp;
 
-import android.content.Intent;
 import android.os.Build;
 import android.widget.TextView;
 
+import com.example.myfitnessapp.ui.MainActivity;
+
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
-import org.robolectric.shadows.ShadowActivity;
 
 import static org.junit.Assert.*;
 
