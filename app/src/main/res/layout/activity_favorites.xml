@@ -5,7 +5,7 @@
     android:background="@color/colorButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoritesActivity">
+    tools:context=".ui.FavoritesActivity">
 
 
     <TextView
