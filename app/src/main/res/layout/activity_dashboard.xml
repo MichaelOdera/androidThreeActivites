@@ -5,7 +5,7 @@
     android:textColor="@color/colorButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DashboardActivity">
+    tools:context=".ui.DashboardActivity">
 
 
     <TextView
