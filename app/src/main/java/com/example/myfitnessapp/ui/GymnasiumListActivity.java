@@ -9,16 +9,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.myfitnessapp.adapters.GymListAdapter;
-import com.example.myfitnessapp.adapters.MyGymsArrayAdapter;
 import com.example.myfitnessapp.R;
 import com.example.myfitnessapp.models.Business;
-import com.example.myfitnessapp.models.Category;
 import com.example.myfitnessapp.network.YelpBusinessesSearchResponse;
 import com.example.myfitnessapp.network.YelpApi;
 import com.example.myfitnessapp.network.YelpClient;
@@ -31,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GymnasiumsActivity extends AppCompatActivity {
+public class GymnasiumListActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
@@ -42,7 +38,7 @@ public class GymnasiumsActivity extends AppCompatActivity {
     @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
 
-    public static final String TAG = GymnasiumsActivity.class.getSimpleName();
+    public static final String TAG = GymnasiumListActivity.class.getSimpleName();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -67,10 +63,10 @@ public class GymnasiumsActivity extends AppCompatActivity {
                     Log.d("Success", "In the success");
                     gyms = response.body().getBusinesses();
 
-                    mGymListAdapter = new GymListAdapter(GymnasiumsActivity.this, gyms);
+                    mGymListAdapter = new GymListAdapter(GymnasiumListActivity.this, gyms);
                     mRecyclerView.setAdapter(mGymListAdapter);
                     RecyclerView.LayoutManager layoutManager =
-                            new LinearLayoutManager(GymnasiumsActivity.this);
+                            new LinearLayoutManager(GymnasiumListActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
 
