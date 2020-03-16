@@ -1,4 +1,6 @@
-package com.example.myfitnessapp;
+package com.example.myfitnessapp.network;
+
+import com.example.myfitnessapp.network.YelpApi;
 
 import java.io.IOException;
 
