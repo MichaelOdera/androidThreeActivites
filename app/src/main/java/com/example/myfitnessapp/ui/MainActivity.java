@@ -1,23 +1,20 @@
-package com.example.myfitnessapp;
+package com.example.myfitnessapp.ui;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.myfitnessapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.example.myfitnessapp.RegistrationDialogFragment.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
