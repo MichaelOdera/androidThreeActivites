@@ -1,4 +1,4 @@
-package com.example.myfitnessapp;
+package com.example.myfitnessapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.myfitnessapp.R;
 
 import java.util.ArrayList;
 
