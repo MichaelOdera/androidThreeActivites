@@ -17,4 +17,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="check_out_map">Check out Website</string>
     <string name="running_swimming">Running, Swimming</string>
+    <string name="search_activities">Search activities</string>
+    <string name="tutorials">Tutorials</string>
 </resources>
