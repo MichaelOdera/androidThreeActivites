@@ -2,6 +2,7 @@ package com.example.myfitnessapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ public class DashboardActivity extends AppCompatActivity {
             "Frog jumps", "Star Jumps", "Skiing",
             "Commando crawls", "Back Stretching", "abs", "Nature walk"};
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,8 @@ public class DashboardActivity extends AppCompatActivity {
         String gottenUserName = intent.getStringExtra("userName");
         mUserNameTextView.setText("Welcome "+ gottenUserName+". \nClick on activity to choose it as your Week's Favorite");
 
-        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, activities){
+        final ArrayAdapter adapter;
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, activities){
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view =super.getView(position, convertView, parent);
