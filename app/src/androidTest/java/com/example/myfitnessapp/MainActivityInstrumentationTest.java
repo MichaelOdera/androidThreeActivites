@@ -41,6 +41,7 @@ public class MainActivityInstrumentationTest {
     @Before
     public void setup() {
         activityTestRule.launchActivity(MY_ACTIVITY_INTENT);
+        String userName = "Clement";
     }
 
     @Before
@@ -70,10 +71,10 @@ public class MainActivityInstrumentationTest {
 
     @Test
     public void checkIfEditTextReceivesDataCorrectly(){
-        String userName = "Clement";
+        //String userName = "Clement";
         onView(withId(R.id.navigation_activities)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.nameEditText)).perform(typeText(userName)).perform(closeSoftKeyboard());
+        onView(withId(R.id.nameEditText)).perform(typeText("Clement")).perform(closeSoftKeyboard());
     }
 
     @Test
