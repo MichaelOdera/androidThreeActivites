@@ -5,7 +5,12 @@
         android:icon="@drawable/ic_place_white"
         android:title="@string/gyms" />
     <item
+        android:id="@+id/navigation_tutorials"
+        android:icon="@drawable/ic_videos"
+        android:title="@string/tutorials"/>
+    <item
         android:id="@+id/navigation_activities"
         android:icon="@drawable/ic_activities"
         android:title="@string/activities" />
+
 </menu>
