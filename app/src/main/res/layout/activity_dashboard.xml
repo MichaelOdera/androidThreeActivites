@@ -19,7 +19,7 @@
     <EditText android:id="@+id/inputSearch"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="Search activities"
+        android:hint="@string/search_activities"
         android:inputType="textVisiblePassword"/>
 
     <ListView
@@ -28,8 +28,8 @@
         android:id="@+id/listView"
         android:textColor="@color/cardview_shadow_start_color"
         android:layout_below="@+id/userNameTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" >
+        android:layout_alignParentEnd="true"
+        tools:ignore="PrivateResource">
     </ListView>
 
 
