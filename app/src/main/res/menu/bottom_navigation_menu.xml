@@ -3,14 +3,26 @@
     <item
         android:id="@+id/navigation_gyms"
         android:icon="@drawable/ic_place_white"
+        android:state_focused="true"
+        android:state_pressed="true"
+        android:drawable="@color/colorText"
         android:title="@string/gyms" />
     <item
         android:id="@+id/navigation_tutorials"
         android:icon="@drawable/ic_videos"
+        android:state_focused="true"
+        android:state_pressed="true"
+        android:drawable="@color/colorText"
         android:title="@string/tutorials"/>
     <item
         android:id="@+id/navigation_activities"
         android:icon="@drawable/ic_activities"
+        android:actionBarItemBackground="@drawable/selector"
+        android:background="@drawable/selector"
+        android:state_focused="true"
+        android:iconTint="@color/white"
+        android:state_pressed="true"
+        android:drawable="@color/colorText"
         android:title="@string/activities" />
 
 </menu>
