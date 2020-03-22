@@ -7,6 +7,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.os.Parcel;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.myfitnessapp.R;
 import com.example.myfitnessapp.adapters.GymnasiumPagerAdapter;
@@ -19,11 +21,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class GymnasiumDetailActivity extends AppCompatActivity {
+public class GymnasiumDetailActivity extends AppCompatActivity{
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
     private GymnasiumPagerAdapter gymnasiumPagerAdapter;
     List<Business> mGymnasiums;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,4 +42,5 @@ public class GymnasiumDetailActivity extends AppCompatActivity {
         mViewPager.setAdapter(gymnasiumPagerAdapter);
         mViewPager.setCurrentItem(startingPosition);
     }
+
 }
