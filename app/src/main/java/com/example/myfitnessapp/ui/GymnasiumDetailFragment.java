@@ -1,5 +1,6 @@
 package com.example.myfitnessapp.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,10 +13,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myfitnessapp.R;
 import com.example.myfitnessapp.models.Business;
 import com.example.myfitnessapp.models.Category;
+import com.example.myfitnessapp.models.Constants;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -67,6 +72,7 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,7 +92,7 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
         gymnasiumName.setText(mGymnasium.getName());
         gymnasiumService.setText(android.text.TextUtils.join(",",categories));
         gymnasiumPhoneNumber.setText(mGymnasium.getPhone());
-        gymnasiumRating.setText(Double.toString(mGymnasium.getRating())+"/7");
+        gymnasiumRating.setText(Double.toString(mGymnasium.getRating())+"/5");
         gymnasiumAddress.setText(mGymnasium.getLocation().toString());
 
 
@@ -94,6 +100,8 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
         gymnasiumAddress.setOnClickListener(this);
         gymnasiumWebSite.setOnClickListener(this);
         gymnasiumImage.setOnClickListener(this);
+        saveGymnasiumButton.setOnClickListener(this);
+
 
         return view;
     }
@@ -101,7 +109,7 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if(v == gymnasiumImage){
-
+            Toast.makeText(getContext(), "Gymnasium's Photo", Toast.LENGTH_SHORT).show();
         }
 
         if(v == gymnasiumWebSite){
@@ -120,6 +128,14 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
             Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
                     Uri.parse("tel:" + mGymnasium.getPhone()));
             startActivity(phoneIntent);
+        }
+
+        if(v == saveGymnasiumButton){
+            DatabaseReference restaurantRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_GYMNASIUMS);
+            restaurantRef.push().setValue(mGymnasium);
+            Toast.makeText(getContext(), "Saved Gymnasium", Toast.LENGTH_SHORT).show();
         }
 
     }
