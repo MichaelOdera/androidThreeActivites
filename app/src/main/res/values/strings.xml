@@ -19,4 +19,6 @@
     <string name="running_swimming">Running, Swimming</string>
     <string name="search_activities">Search activities</string>
     <string name="tutorials">Tutorials</string>
+    <string name="search_for_gyms">Search For Gyms</string>
+    <string name="search_for_gymnasiums">Search for Gymnasiums</string>
 </resources>
