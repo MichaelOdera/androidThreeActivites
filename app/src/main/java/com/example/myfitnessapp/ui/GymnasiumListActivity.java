@@ -116,24 +116,29 @@ public class GymnasiumListActivity extends AppCompatActivity {
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
-
+        searchView.setSubmitButtonEnabled(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
+                showProgressBar();
                 addToSharedPreferences(query);
                 getRestaurants(query);
                 return false;
             }
 
+
             @Override
             public boolean onQueryTextChange(String newText) {
-                mProgressBar.setVisibility(View.VISIBLE);
                 return false;
             }
 
         });
         return true;
+    }
+
+    private void showProgressBar() {
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     private void addToSharedPreferences(String location) {
@@ -150,10 +155,10 @@ public class GymnasiumListActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
-                mProgressBar.setVisibility(View.GONE);
                 Log.d(TAG, "In the Override");
                 if (response.isSuccessful()) {
-                    mErrorTextView.setVisibility(View.GONE);
+                    hideProgressBar();
+                    hideErrorTextView();
                     Log.d(TAG, "Response Successful");
                     gyms = response.body().getBusinesses();
                     mGymListAdapter = new GymListAdapter(GymnasiumListActivity.this, gyms);
@@ -182,6 +187,14 @@ public class GymnasiumListActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+    }
+
+    private void hideErrorTextView() {
+        mErrorTextView.setVisibility(View.GONE);
     }
 
 }
