@@ -26,8 +26,8 @@ import butterknife.ButterKnife;
 public class SearchGymsActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = SearchGymsActivity.class.getSimpleName();
-    @BindView(R.id.gymSearchEditText)
-    EditText mGymSearchEditText;
+    //@BindView(R.id.gymSearchEditText)
+    //EditText mGymSearchEditText;
     @BindView(R.id.submitGymLocationButton)
     Button mGymSearchButton;
     @BindView(R.id.savedGymnasiumsButton) Button mSavedGymnasiumsButton;
@@ -97,10 +97,10 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v){
         if(v == mGymSearchButton ){
-            String searchGymLocation = mGymSearchEditText.getText().toString();
+            //String searchGymLocation = mGymSearchEditText.getText().toString();
             Intent gymIntent = new Intent(SearchGymsActivity.this, GymnasiumListActivity.class);
-            saveLocationToFirebase(searchGymLocation);
-            gymIntent.putExtra("gymLocation", searchGymLocation);
+            //saveLocationToFirebase(searchGymLocation);
+            //gymIntent.putExtra("gymLocation", searchGymLocation);
             startActivity(gymIntent);
         }
 
@@ -110,11 +110,11 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    private void saveLocationToFirebase(String searchGymLocation) {
-        mSearchedLocationReference.push().setValue(searchGymLocation);
-        System.out.println("_____-------____------");
-        Log.d(TAG, "Saved Location :"+searchGymLocation);
-    }
+//    private void saveLocationToFirebase(String searchGymLocation) {
+//        mSearchedLocationReference.push().setValue(searchGymLocation);
+//        System.out.println("_____-------____------");
+//        Log.d(TAG, "Saved Location :"+searchGymLocation);
+//    }
 
     @Override
     protected void onDestroy(){
