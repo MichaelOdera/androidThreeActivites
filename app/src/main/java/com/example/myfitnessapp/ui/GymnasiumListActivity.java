@@ -2,6 +2,7 @@ package com.example.myfitnessapp.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,9 +10,14 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.myfitnessapp.adapters.GymListAdapter;
@@ -60,9 +66,10 @@ public class GymnasiumListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gymnasiums);
         ButterKnife.bind(this);
+        onLoadingShowCorrespondingMessage();
 
-        Intent gymLocationIntent = getIntent();
-        String location = gymLocationIntent.getStringExtra("gymLocation");
+        //Intent gymLocationIntent = getIntent();
+        //String location = gymLocationIntent.getStringExtra("gymLocation");
         //mLocationTextView.setText("Gymnasiums near "+ location);
 
         mSearchedLocationReference = FirebaseDatabase
@@ -88,61 +95,93 @@ public class GymnasiumListActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    private void onLoadingShowCorrespondingMessage() {
+        mProgressBar.setVisibility(View.GONE);
+        mErrorTextView.setText("There are currently no Gymnasiums to show, Please Search location to show gymnasiums");
+        mErrorTextView.setTextColor(getResources().getColor(R.color.colorButton));
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    @SuppressLint("CommitPrefEdits")
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                addToSharedPreferences(query);
+                getRestaurants(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mProgressBar.setVisibility(View.VISIBLE);
+                return false;
+            }
+
+        });
+        return true;
+    }
+
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+    }
+
+    private void getRestaurants(String location) {
         YelpApi client = YelpClient.getClient();
-        Call<YelpBusinessesSearchResponse> call = client.getGymnasiums(location, "gyms");
-        Log.d(TAG, "Made a call");
 
-        call.enqueue(new Callback<YelpBusinessesSearchResponse>() {
+        Call<YelpBusinessesSearchResponse> call = client.getGymnasiums(location, "gyms");
+        Log.d(TAG, "After Location");
+
+        call.enqueue(new Callback<YelpBusinessesSearchResponse>(){
+
             @Override
             public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
-                hideProgressBar();
+                mProgressBar.setVisibility(View.GONE);
+                Log.d(TAG, "In the Override");
                 if (response.isSuccessful()) {
-                    Log.d("Success", "In the success");
+                    mErrorTextView.setVisibility(View.GONE);
+                    Log.d(TAG, "Response Successful");
                     gyms = response.body().getBusinesses();
-
                     mGymListAdapter = new GymListAdapter(GymnasiumListActivity.this, gyms);
                     mRecyclerView.setAdapter(mGymListAdapter);
                     RecyclerView.LayoutManager layoutManager =
                             new LinearLayoutManager(GymnasiumListActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
-
-                    showGymnasiums();
-
+                    mRecyclerView.setVisibility(View.VISIBLE);
+                }else{
+                  onLoadingShowCorrespondingMessage();
                 }
-                else{
-                    showUnsuccessfulMessage();
-                }
+
             }
 
             @Override
             public void onFailure(Call<YelpBusinessesSearchResponse> call, Throwable t) {
-                Log.d(TAG,"Not Successful");
+                Log.d(TAG, "Request not successful");
                 Log.e(TAG, "onFailure: ",t );
-                hideProgressBar();
-                showFailureMessage();
-
-            }
-
-            private void showFailureMessage() {
+                mProgressBar.setVisibility(View.GONE);
                 mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
                 mErrorTextView.setVisibility(View.VISIBLE);
-            }
 
-            private void showUnsuccessfulMessage() {
-                mErrorTextView.setText("Something went wrong. Please try again later");
-                mErrorTextView.setVisibility(View.VISIBLE);
             }
-
-            private void showGymnasiums() {
-                mRecyclerView.setVisibility(View.VISIBLE);
-            }
-
-            private void hideProgressBar() {
-                mProgressBar.setVisibility(View.GONE);
-            }
-
         });
+
+
+
     }
+
 }
