@@ -68,7 +68,6 @@ public class  YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycle
         public YoutubeViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            itemView.setOnClickListener(this);
             mPlayerVideoButton.setOnClickListener(this);
             mContext = itemView.getContext();
 
