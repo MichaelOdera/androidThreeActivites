@@ -26,7 +26,7 @@ import java.util.zip.CheckedOutputStream;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecyclerAdapter.YoutubeViewHolder> {
+public class  YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecyclerAdapter.YoutubeViewHolder> {
     private Context mContext;
     private List<Item> mItems;
     String videoId;
