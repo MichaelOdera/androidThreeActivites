@@ -6,8 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.YoutubeTutorialsActivity">
 
+    <TextView
+        android:id="@+id/searchVideosHeader"
+        android:textColor="@color/colorButton"
+        android:text="There are No Videos to Show yet, Enter your search item to show."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/youtubeRecyclerView"
+        android:layout_below="@+id/searchVideosHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
