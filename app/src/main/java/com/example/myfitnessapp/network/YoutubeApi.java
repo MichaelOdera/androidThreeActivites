@@ -11,6 +11,7 @@ public interface YoutubeApi {
     Call<GoogleResponse> getVideos(
             @Query("part") String part,
             @Query("q") String q,
+            @Query("maxResults") String maxResults,
             @Query("key") String key
     );
 }
