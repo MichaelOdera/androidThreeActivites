@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,10 +63,13 @@ public class  YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycle
         @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
         @BindView(R.id.youtubeThumbNail)
         ImageView mThumbNailImageView;
+        @BindView(R.id.playVideoButton)
+        ImageButton mPlayerVideoButton;
         public YoutubeViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
+            mPlayerVideoButton.setOnClickListener(this);
             mContext = itemView.getContext();
 
         }
