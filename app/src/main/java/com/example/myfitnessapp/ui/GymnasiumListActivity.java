@@ -123,7 +123,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 showProgressBar();
                 addToSharedPreferences(query);
-                getRestaurants(query);
+                getGymnasiums(query);
                 return false;
             }
 
@@ -145,7 +145,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
         mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 
-    private void getRestaurants(String location) {
+    private void getGymnasiums(String location) {
         YelpApi client = YelpClient.getClient();
 
         Call<YelpBusinessesSearchResponse> call = client.getGymnasiums(location, "gyms");
