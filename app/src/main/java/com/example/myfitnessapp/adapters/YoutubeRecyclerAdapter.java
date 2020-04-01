@@ -1,11 +1,14 @@
 package com.example.myfitnessapp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myfitnessapp.R;
 import com.example.myfitnessapp.googlemodel.Item;
 import com.example.myfitnessapp.googlemodel.Snippet;
+import com.example.myfitnessapp.ui.YoutubePlayerActivity;
+import com.google.android.youtube.player.YouTubePlayer;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -24,6 +29,7 @@ import butterknife.ButterKnife;
 public class YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecyclerAdapter.YoutubeViewHolder> {
     private Context mContext;
     private List<Item> mItems;
+    String videoId;
 
     public YoutubeRecyclerAdapter(Context context, List<Item> items){
         mContext = context;
@@ -48,7 +54,7 @@ public class YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycler
         return mItems.size();
     }
 
-    public class YoutubeViewHolder extends RecyclerView.ViewHolder {
+    public class YoutubeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         @BindView(R.id.videoTitleTextView)
         TextView mVideoTitleTextView;
@@ -58,6 +64,7 @@ public class YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycler
         public YoutubeViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
             mContext = itemView.getContext();
 
         }
@@ -66,6 +73,18 @@ public class YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycler
             Picasso.get().load(snippet.getSnippet().getThumbnails().getDefault().getUrl()).into(mThumbNailImageView);
             mVideoTitleTextView.setText(snippet.getSnippet().getTitle());
             mDescriptionTextView.setText(snippet.getSnippet().getDescription());
+        }
+
+        @Override
+        public void onClick(View v) {
+                int position = getLayoutPosition();
+                Intent intent = new Intent(mContext, YoutubePlayerActivity.class);
+                String videoId = mItems.get(position).getId().getVideoId();
+                intent.putExtra("position", position);
+                intent.putExtra("videoId", videoId);
+                mContext.startActivity(intent);
+                Toast.makeText(mContext, "CLICKED NOW", Toast.LENGTH_SHORT).show();
+                Log.d("Clicked a VIDEO _______", "wants to load Youtube player");
         }
     }
 }
