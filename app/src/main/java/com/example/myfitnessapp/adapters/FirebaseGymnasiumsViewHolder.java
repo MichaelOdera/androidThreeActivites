@@ -37,18 +37,23 @@ public class FirebaseGymnasiumsViewHolder extends RecyclerView.ViewHolder implem
 
     @SuppressLint("SetTextI18n")
     public void bindGymnasium(Business gymnasium){
-        ImageView restaurantImageView = mView.findViewById(R.id.gymnasiumImageView);
+        ImageView gymnasiumImageView = mView.findViewById(R.id.gymnasiumsImageView);
         TextView nameTextView = mView.findViewById(R.id.gymnasiumNameTextView);
         TextView categoryTextView = mView.findViewById(R.id.categoryTextView);
         TextView ratingTextView = mView.findViewById(R.id.ratingTextView);
+        TextView priceTextView = mView.findViewById(R.id.gymnasiumPrice);
+
+
         nameTextView.setText(gymnasium.getName());
         nameTextView.setVisibility(View.VISIBLE);
         categoryTextView.setText(gymnasium.getCategories().get(0).getTitle());
         categoryTextView.setVisibility(View.VISIBLE);
         ratingTextView.setText("Rating: " + gymnasium.getRating() + "/5");
         ratingTextView.setVisibility(View.VISIBLE);
-        Picasso.get().load(gymnasium.getImageUrl()).into(restaurantImageView);
-        restaurantImageView.setVisibility(View.VISIBLE);
+        Picasso.get().load(gymnasium.getImageUrl()).into(gymnasiumImageView);
+        gymnasiumImageView.setVisibility(View.VISIBLE);
+        priceTextView.setVisibility(View.VISIBLE);
+        priceTextView.setText(gymnasium.getPrice());
     }
 
     @Override
