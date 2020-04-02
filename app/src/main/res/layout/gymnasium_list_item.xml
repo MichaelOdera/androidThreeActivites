@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:orientation="vertical"
@@ -42,15 +42,30 @@
                 android:textAlignment="textStart"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:textColor="@color/colorButton"/>
+                android:textColor="@color/lightThemePrimaryColourV3"/>
+
+            <TextView
+                android:id="@+id/gymnasiumPrice"
+                android:layout_width="106dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/ratingTextView"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="Price"
+                android:textAlignment="textEnd"
+                android:textColor="@color/lightThemePrimaryColourV3" />
+
+            <ImageView
+                android:id="@+id/gymnasiumsImageView"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bulls" />
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/gymnasiumImageView"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bulls" />
     </LinearLayout>
+
+
 
 </LinearLayout>
