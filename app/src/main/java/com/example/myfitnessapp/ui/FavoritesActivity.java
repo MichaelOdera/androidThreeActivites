@@ -26,8 +26,7 @@ import butterknife.ButterKnife;
 public class FavoritesActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.favoriteExerciseTextView)
     TextView mFavoriteExerciseTextView;
-//    @BindView(R.id.listView)
-//    ListView mFavoriteListView;
+
 
     @BindView(R.id.startButton)
     Button mStartTimerButton;
