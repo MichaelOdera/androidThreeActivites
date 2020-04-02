@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.example.myfitnessapp.R;
 import com.example.myfitnessapp.models.Constants;
@@ -102,14 +101,16 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v){
         if(v == mGymSearchButton ){
-            Animation animation = AnimationUtils.loadAnimation(this,R.anim.zoom_out);
-            mGymSearchButton.startAnimation(animation);
+            Animation animationZoomIn = AnimationUtils.loadAnimation(this,R.anim.zoom_in);
+            mGymSearchButton.startAnimation(animationZoomIn);
             //String searchGymLocation = mGymSearchEditText.getText().toString();
             Intent gymIntent = new Intent(SearchGymsActivity.this, GymnasiumListActivity.class);
             startActivity(gymIntent);
         }
 
         if (v == mSavedGymnasiumsButton) {
+            Animation bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.bounce);
+            mSavedGymnasiumsButton.startAnimation(bounceAnimation);
             Intent intent = new Intent(SearchGymsActivity.this, SavedGymnasiumsListActivity.class);
             startActivity(intent);
         }
