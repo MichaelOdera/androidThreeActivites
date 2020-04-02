@@ -2,6 +2,8 @@ package com.example.myfitnessapp.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mGetStartedButton.setOnClickListener(this);
+        bottomNavigationView.setItemIconTintList(null);
+        bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
         mAuth = FirebaseAuth.getInstance();

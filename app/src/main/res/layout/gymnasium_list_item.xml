@@ -2,47 +2,47 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:background="#ffffff"
+        android:layout_width="398dp"
         android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/gymnasiumNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/gymnasiumNameTextView"
-            android:textSize="20dp"
-            android:textStyle="bold"
             android:text="@string/gymnasium_name"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/categoryTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gymnasium Category"
-            android:id="@+id/categoryTextView"
             android:layout_below="@+id/gymnasiumNameTextView"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:textStyle="italic"/>
+            android:layout_alignParentLeft="true"
+            android:text="Gymnasium Category"
+            android:textStyle="italic" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="29dp">
 
             <TextView
+                android:id="@+id/ratingTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rating"
-                android:id="@+id/ratingTextView"
-                android:textAlignment="textStart"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:textColor="@color/colorButton"/>
+                android:text="Rating"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorAccent" />
         </RelativeLayout>
 
         <ImageView
