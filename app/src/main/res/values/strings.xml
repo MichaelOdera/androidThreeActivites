@@ -22,4 +22,5 @@
     <string name="search_for_gyms">Search For Gyms</string>
     <string name="search_for_gymnasiums">Search for Gymnasiums</string>
     <string name="video_name">Video Name</string>
+    <string name="gymnasium_category">Gymnasium Category</string>
 </resources>
