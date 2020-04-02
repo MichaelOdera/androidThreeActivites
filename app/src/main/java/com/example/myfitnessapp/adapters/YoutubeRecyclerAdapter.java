@@ -76,7 +76,7 @@ public class  YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycle
         public void bindSnippet(Item snippet) {
             Picasso.get().load(snippet.getSnippet().getThumbnails().getDefault().getUrl()).into(mThumbNailImageView);
             mVideoTitleTextView.setText(snippet.getSnippet().getTitle());
-            mDescriptionTextView.setText(snippet.getSnippet().getDescription());
+            mDescriptionTextView.setText(snippet.getSnippet().getChannelTitle());
         }
 
         @Override
@@ -87,7 +87,7 @@ public class  YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycle
                 intent.putExtra("position", position);
                 intent.putExtra("videoId", videoId);
                 mContext.startActivity(intent);
-                Toast.makeText(mContext, "CLICKED NOW", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "PLAYING VIDEO NOW", Toast.LENGTH_SHORT).show();
                 Log.d("Clicked a VIDEO _______", "wants to load Youtube player");
         }
     }
