@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -44,6 +46,9 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
         ButterKnife.bind(this);
         mGymSearchButton.setOnClickListener(this);
         mSavedGymnasiumsButton.setOnClickListener(this);
+
+
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
@@ -97,10 +102,10 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v){
         if(v == mGymSearchButton ){
+            Animation animation = AnimationUtils.loadAnimation(this,R.anim.zoom_out);
+            mGymSearchButton.startAnimation(animation);
             //String searchGymLocation = mGymSearchEditText.getText().toString();
             Intent gymIntent = new Intent(SearchGymsActivity.this, GymnasiumListActivity.class);
-            //saveLocationToFirebase(searchGymLocation);
-            //gymIntent.putExtra("gymLocation", searchGymLocation);
             startActivity(gymIntent);
         }
 
