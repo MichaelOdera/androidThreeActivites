@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="398dp"
-        android:layout_height="match_parent"
+        android:layout_height="fill_parent"
         android:background="#ffffff"
         android:orientation="vertical"
         android:padding="10dp">
@@ -27,30 +27,32 @@
             android:layout_below="@+id/gymnasiumNameTextView"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:text="Gymnasium Category"
+            android:text="@string/gymnasium_category"
             android:textStyle="italic" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="29dp">
+            android:layout_height="104dp">
 
             <TextView
                 android:id="@+id/ratingTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
+                android:layout_marginStart="301dp"
+                android:layout_marginEnd="37dp"
+                android:layout_marginRight="37dp"
                 android:text="Rating"
                 android:textAlignment="textStart"
                 android:textColor="@color/colorAccent" />
+
+            <ImageView
+                android:id="@+id/gymnasiumImageView"
+                android:layout_width="140dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bulls" />
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/gymnasiumImageView"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bulls" />
     </LinearLayout>
 
 </LinearLayout>
