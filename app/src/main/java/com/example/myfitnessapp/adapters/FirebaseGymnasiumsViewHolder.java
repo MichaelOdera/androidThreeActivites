@@ -28,6 +28,7 @@ import java.util.ArrayList;
 public class FirebaseGymnasiumsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     private Context mContext;
     private View mView;
+
     public FirebaseGymnasiumsViewHolder(@NonNull View itemView) {
         super(itemView);
         mView = itemView;
@@ -37,12 +38,10 @@ public class FirebaseGymnasiumsViewHolder extends RecyclerView.ViewHolder implem
 
     @SuppressLint("SetTextI18n")
     public void bindGymnasium(Business gymnasium){
-        ImageView gymnasiumImageView = mView.findViewById(R.id.gymnasiumsImageView);
+        ImageView mGymnasiumImageView = mView.findViewById(R.id.gymnasiumsImageView);
         TextView nameTextView = mView.findViewById(R.id.gymnasiumNameTextView);
         TextView categoryTextView = mView.findViewById(R.id.categoryTextView);
         TextView ratingTextView = mView.findViewById(R.id.ratingTextView);
-        TextView priceTextView = mView.findViewById(R.id.gymnasiumPrice);
-
 
         nameTextView.setText(gymnasium.getName());
         nameTextView.setVisibility(View.VISIBLE);
@@ -50,10 +49,9 @@ public class FirebaseGymnasiumsViewHolder extends RecyclerView.ViewHolder implem
         categoryTextView.setVisibility(View.VISIBLE);
         ratingTextView.setText("Rating: " + gymnasium.getRating() + "/5");
         ratingTextView.setVisibility(View.VISIBLE);
-        Picasso.get().load(gymnasium.getImageUrl()).into(gymnasiumImageView);
-        gymnasiumImageView.setVisibility(View.VISIBLE);
-        priceTextView.setVisibility(View.VISIBLE);
-        priceTextView.setText(gymnasium.getPrice());
+        Picasso.get().load(gymnasium.getImageUrl()).into(mGymnasiumImageView);
+        mGymnasiumImageView.setVisibility(View.VISIBLE);
+
     }
 
     @Override

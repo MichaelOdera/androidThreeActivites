@@ -44,17 +44,17 @@
                 android:layout_alignParentRight="true"
                 android:textColor="@color/lightThemePrimaryColourV3"/>
 
-<!--            <TextView-->
-<!--                android:id="@+id/gymnasiumPrice"-->
-<!--                android:layout_width="106dp"-->
-<!--                android:layout_height="35dp"-->
-<!--                android:layout_below="@+id/ratingTextView"-->
-<!--                android:layout_alignParentEnd="true"-->
-<!--                android:layout_marginTop="4dp"-->
-<!--                android:layout_marginEnd="4dp"-->
-<!--                android:text="Price"-->
-<!--                android:textAlignment="textEnd"-->
-<!--                android:textColor="@color/lightThemePrimaryColourV3" />-->
+            <TextView
+                android:id="@+id/gymnasiumPrice"
+                android:layout_width="106dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/ratingTextView"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="Price"
+                android:textAlignment="textEnd"
+                android:textColor="@color/lightThemePrimaryColourV3" />
 
             <ImageView
                 android:id="@+id/gymnasiumsImageView"
@@ -62,10 +62,19 @@
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/bulls" />
-        </RelativeLayout>
 
+            <ImageView
+                android:id="@+id/dragIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignLeft="@id/gymnasiumsImageView"
+                android:layout_alignBottom="@id/gymnasiumsImageView"
+                android:gravity="bottom|left"
+                android:src="@drawable/ic_reorder"/>
+        </RelativeLayout>
     </LinearLayout>
 
-
-
 </LinearLayout>
+
+
+

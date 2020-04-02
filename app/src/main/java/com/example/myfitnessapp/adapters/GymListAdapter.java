@@ -57,7 +57,7 @@ public class GymListAdapter extends RecyclerView.Adapter<GymListAdapter.Gymnasiu
         @BindView(R.id.gymnasiumNameTextView) TextView mGymnasiumNameTextView;
         @BindView(R.id.categoryTextView) TextView mCategoryTextView;
         @BindView(R.id.ratingTextView) TextView mRatingTextView;
-        @BindView(R.id.gymnasiumPrice) TextView mGymnasiumPriceTextView;
+        //@BindView(R.id.gymnasiumPrice) TextView mGymnasiumPriceTextView;
 
 
         public GymnasiumViewHolder(@NonNull View itemView) {
@@ -70,7 +70,7 @@ public class GymListAdapter extends RecyclerView.Adapter<GymListAdapter.Gymnasiu
         @SuppressLint("SetTextI18n")
         public void bindGymnasium(Business gymnasium){
             Picasso.get().load(gymnasium.getImageUrl()).into(mGymnasiumImageView);
-            mGymnasiumPriceTextView.setText(gymnasium.getPrice());
+            //mGymnasiumPriceTextView.setText(gymnasium.getDistance().toString());
             mGymnasiumNameTextView.setText(gymnasium.getName());
             mCategoryTextView.setText(gymnasium.getCategories().get(0).getTitle());
             mRatingTextView.setText("Rating: "+gymnasium.getRating()+"/5");

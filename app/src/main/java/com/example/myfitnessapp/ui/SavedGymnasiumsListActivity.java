@@ -2,6 +2,7 @@ package com.example.myfitnessapp.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,11 +13,16 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.example.myfitnessapp.R;
+import com.example.myfitnessapp.adapters.FirebaseGymnasiumListAdapter;
 import com.example.myfitnessapp.adapters.FirebaseGymnasiumsViewHolder;
 import com.example.myfitnessapp.models.Business;
 import com.example.myfitnessapp.models.Constants;
+import com.example.myfitnessapp.util.OnStartDragListener;
+import com.example.myfitnessapp.util.SimpleItemTouchHelperCallback;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,6 +32,7 @@ import butterknife.ButterKnife;
 public class SavedGymnasiumsListActivity extends AppCompatActivity {
     private DatabaseReference mGymnasiumsReference;
     private FirebaseRecyclerAdapter<Business, FirebaseGymnasiumsViewHolder> mFirebaseAdapter;
+    private ItemTouchHelper mItemTouchHelper;
 
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
@@ -42,11 +49,13 @@ public class SavedGymnasiumsListActivity extends AppCompatActivity {
         mProgressBar.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.VISIBLE);
 
+
         mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS);
         setUpFirebaseAdapter();
     }
 
     private void setUpFirebaseAdapter() {
+
         FirebaseRecyclerOptions<Business> options =
                 new FirebaseRecyclerOptions.Builder<Business>()
                         .setQuery(mGymnasiumsReference, Business.class)
@@ -68,6 +77,8 @@ public class SavedGymnasiumsListActivity extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
+        mRecyclerView.setHasFixedSize(true);
+
     }
 
     @Override
