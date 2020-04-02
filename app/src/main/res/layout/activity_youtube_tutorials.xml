@@ -9,6 +9,7 @@
     <TextView
         android:id="@+id/searchVideosHeader"
         android:textColor="@color/colorButton"
+        android:background="@drawable/background_rounded"
         android:text="There are No Videos to Show yet, Enter your search item to show."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
