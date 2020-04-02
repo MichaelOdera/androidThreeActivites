@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.MediaController;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -92,7 +93,7 @@ public class YoutubeTutorialsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<GoogleResponse> call, Response<GoogleResponse> response) {
                 if (response.isSuccessful()) {
-                    mSearchVideosHeader.setText("HERE ARE YOUR VIDEOS");
+                    mSearchVideosHeader.setVisibility(View.GONE);
                     mItems = response.body().getItems();
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(YoutubeTutorialsActivity.this);
                     youtubeRecyclerAdapter = new YoutubeRecyclerAdapter(YoutubeTutorialsActivity.this, mItems);
