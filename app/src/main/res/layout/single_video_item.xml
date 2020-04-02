@@ -8,11 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-
         <ImageView
             android:id="@+id/youtubeThumbNail"
-            android:layout_width="343dp"
+            android:layout_width="@android:dimen/thumbnail_width"
+            android:layout_gravity="center"
             android:layout_height="@android:dimen/thumbnail_height"
             android:foregroundTint="@color/design_default_color_on_primary"
             android:src="@drawable/bolt" />
@@ -21,6 +20,7 @@
             android:id="@+id/playVideoButton"
             android:layout_width="365dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:src="@drawable/ic_play_circle" />
 
         <TextView
@@ -34,12 +34,12 @@
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorButton"
+            android:layout_height="84dp"
             android:layout_below="@+id/videoTitleTextView"
             android:backgroundTint="@color/colorButton"
             android:text="TextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
+            android:textColor="@color/colorButton" />
     </LinearLayout>
 
 
