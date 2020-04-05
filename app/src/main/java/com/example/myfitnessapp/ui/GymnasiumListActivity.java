@@ -33,6 +33,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
@@ -151,7 +153,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
         call.enqueue(new Callback<YelpBusinessesSearchResponse>(){
 
             @Override
-            public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
+            public void onResponse(@NotNull Call<YelpBusinessesSearchResponse> call, @NotNull Response<YelpBusinessesSearchResponse> response) {
                 Log.d(TAG, "In the Override");
                 if (response.isSuccessful()) {
                     hideProgressBar();
@@ -171,6 +173,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
 
             }
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onFailure(Call<YelpBusinessesSearchResponse> call, Throwable t) {
                 Log.d(TAG, "Request not successful");
