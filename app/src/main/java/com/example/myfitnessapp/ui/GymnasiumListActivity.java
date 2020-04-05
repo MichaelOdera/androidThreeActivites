@@ -68,9 +68,6 @@ public class GymnasiumListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         onLoadingShowCorrespondingMessage();
 
-        //Intent gymLocationIntent = getIntent();
-        //String location = gymLocationIntent.getStringExtra("gymLocation");
-        //mLocationTextView.setText("Gymnasiums near "+ location);
 
         mSearchedLocationReference = FirebaseDatabase
                 .getInstance()

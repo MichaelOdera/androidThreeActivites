@@ -107,7 +107,7 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
         }
 
         if (v == mSavedGymnasiumsButton) {
-            Animation bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.bounce);
+            Animation bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.fades_in);
             mSavedGymnasiumsButton.startAnimation(bounceAnimation);
             Intent intent = new Intent(SearchGymsActivity.this, SavedGymnasiumsListActivity.class);
             startActivity(intent);

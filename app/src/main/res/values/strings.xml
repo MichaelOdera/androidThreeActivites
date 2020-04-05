@@ -9,8 +9,8 @@
     <string name="zip_code">Location/Zip Code...</string>
     <string name="todo">TODO</string>
     <string name="submit_location">Submit Location</string>
-    <string name="activities">ACTIVITIES</string>
-    <string name="gyms">GYMS</string>
+    <string name="activities">SEE ACTIVITIES</string>
+    <string name="gyms">SEARCH GYMS</string>
     <string name="gymnasium_name">Gymnasium Name</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -18,7 +18,7 @@
     <string name="check_out_map">Check out Website</string>
     <string name="running_swimming">Running, Swimming</string>
     <string name="search_activities">Search activities</string>
-    <string name="tutorials">Tutorials</string>
+    <string name="tutorials">Search Youtube Tutorials</string>
     <string name="search_for_gyms">Search For Gyms</string>
     <string name="search_for_gymnasiums">Search for Gymnasiums</string>
     <string name="video_name">Video Name</string>
