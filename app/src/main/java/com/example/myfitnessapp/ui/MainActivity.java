@@ -5,25 +5,41 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfitnessapp.R;
+import com.example.myfitnessapp.adapters.FirebaseGymnasiumsViewHolder;
+import com.example.myfitnessapp.models.Business;
+import com.example.myfitnessapp.models.Constants;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private DatabaseReference mGymnasiumsReference;
+    private FirebaseRecyclerAdapter<Business, FirebaseGymnasiumsViewHolder> mFirebaseAdapter;
+
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
 
     @BindView(R.id.getStartedButton)
     Button mGetStartedButton;
@@ -46,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
+        mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS);
+        setUpFirebaseAdapter();
+
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = firebaseAuth -> {
             FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -58,6 +77,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
 
     }
+
+    private void setUpFirebaseAdapter() {
+        FirebaseRecyclerOptions<Business> options =
+                new FirebaseRecyclerOptions.Builder<Business>()
+                        .setQuery(mGymnasiumsReference, Business.class)
+                        .build();
+
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Business, FirebaseGymnasiumsViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull FirebaseGymnasiumsViewHolder firebaseGymnasiumsViewHolder, int position, @NonNull Business gymnasium) {
+                firebaseGymnasiumsViewHolder.bindGymnasium(gymnasium);
+            }
+
+            @NonNull
+            @Override
+            public FirebaseGymnasiumsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gymnasium_list_item, parent, false);
+                return new FirebaseGymnasiumsViewHolder(view);
+            }
+        };
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(mFirebaseAdapter);
+    }
+
 
     BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -121,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
+        mFirebaseAdapter.startListening();
     }
 
     @Override
@@ -128,6 +173,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onStop();
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
+        }
+
+        if(mFirebaseAdapter != null) {
+            mFirebaseAdapter.stopListening();
         }
     }
 
