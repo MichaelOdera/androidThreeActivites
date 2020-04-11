@@ -16,6 +16,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +24,7 @@ import com.example.myfitnessapp.R;
 import com.example.myfitnessapp.adapters.FirebaseGymnasiumsViewHolder;
 import com.example.myfitnessapp.models.Business;
 import com.example.myfitnessapp.models.Constants;
+import com.example.myfitnessapp.swipedelete.SwipeToDeleteCallback;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,6 +32,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAuthListener = firebaseAuth -> {
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if (user != null) {
-                getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                Objects.requireNonNull(getSupportActionBar()).setTitle("Welcome, " + user.getDisplayName() + "!");
             } else {
 
             }
@@ -100,6 +104,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
+        ItemTouchHelper itemTouchHelper = new
+                ItemTouchHelper(new SwipeToDeleteCallback(mFirebaseAdapter));
+        itemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
 
 
