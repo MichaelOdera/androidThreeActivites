@@ -23,4 +23,6 @@
     <string name="search_for_gymnasiums">Search for Gymnasiums</string>
     <string name="video_name">Video Name</string>
     <string name="gymnasium_category">Gymnasium Category</string>
+    <string name="snack_bar_text">restore</string>
+    <string name="snack_bar_undo">undo delete</string>
 </resources>
