@@ -68,7 +68,6 @@ public class DashboardActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //view.setBackgroundColor(getColor(R.color.lightThemeDarkPrimaryColourV3 )) ;
                 String exercise = ((TextView)view).getText().toString();
                 Intent intent = new Intent(DashboardActivity.this, FavoritesActivity.class);
                 intent.putExtra("exercise",exercise);
