@@ -3,6 +3,7 @@ package com.example.myfitnessapp.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -98,6 +99,7 @@ public class YoutubeTutorialsActivity extends AppCompatActivity {
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(YoutubeTutorialsActivity.this);
                     youtubeRecyclerAdapter = new YoutubeRecyclerAdapter(YoutubeTutorialsActivity.this, mItems);
                     mYoutubeRecyclerView.setLayoutManager(layoutManager);
+                    mYoutubeRecyclerView.addItemDecoration(new DividerItemDecoration(YoutubeTutorialsActivity.this, DividerItemDecoration.VERTICAL));
                     mYoutubeRecyclerView.setAdapter(youtubeRecyclerAdapter);
                     mYoutubeRecyclerView.setHasFixedSize(true);
                     Log.d("Successful------", "SUCCESS________________");
