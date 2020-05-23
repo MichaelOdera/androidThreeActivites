@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.YoutubeTutorialsActivity">
@@ -12,7 +13,7 @@
         android:background="@drawable/background_rounded"
         android:layout_centerInParent="true"
         android:padding="20dp"
-        android:text="There are No Videos to Show yet, Enter your search item to show."
+        android:text="@string/there_are_no_videos_to_show_yet_enter_your_search_item_to_show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
