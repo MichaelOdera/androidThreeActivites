@@ -1,69 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="398dp"
-        android:layout_height="match_parent"
-        android:background="@drawable/edit_text_border"
-        android:orientation="vertical"
-        android:padding="10dp">
+    <ImageView
+        android:id="@+id/gymnasiumImageView"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bulls" />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="104dp">
-
-            <TextView
-                android:id="@+id/ratingTextView"
-                android:layout_width="83dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="144dp"
-                android:layout_marginRight="37dp"
-                android:layout_marginBottom="9dp"
-                android:text="Rating"
-                android:textAlignment="textStart"
-                android:textColor="@color/colorAccent" />
-
-            <ImageView
-                android:id="@+id/gymnasiumImageView"
-                android:layout_width="140dp"
-                android:layout_height="100dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/bulls" />
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/gymnasiumNameTextView"
-                android:layout_width="208dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="21dp"
                 android:text="@string/gymnasium_name"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/categoryTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/gymnasiumNameTextView"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="153dp"
-                android:layout_marginLeft="153dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="94dp"
                 android:text="@string/gymnasium_category"
                 android:textStyle="italic" />
-        </RelativeLayout>
 
-    </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/ratingTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/rating"
+                    android:textColor="@color/colorAccent" />
+            </RelativeLayout>
+
+        </LinearLayout>
 
 </LinearLayout>
