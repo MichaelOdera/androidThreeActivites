@@ -16,6 +16,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,15 +39,13 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
     private DatabaseReference mGymnasiumsReference;
     private FirebaseRecyclerAdapter<Business, FirebaseGymnasiumsViewHolder> mFirebaseAdapter;
 
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    @BindView(R.id.getStartedButton)
-    Button mGetStartedButton;
 
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigationView;
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mGetStartedButton.setOnClickListener(this);
         bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
@@ -103,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
         mRecyclerView.setAdapter(mFirebaseAdapter);
         ItemTouchHelper itemTouchHelper = new
                 ItemTouchHelper(new SwipeToDeleteCallback(mFirebaseAdapter));
@@ -134,14 +133,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             };
 
 
-    @Override
-    public void onClick(View v){
-        if(v == mGetStartedButton){
-            FragmentManager fm = getSupportFragmentManager();
-            RegistrationDialogFragment registerDialogFragment = new RegistrationDialogFragment ();
-            registerDialogFragment.show(fm, "registration");
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
