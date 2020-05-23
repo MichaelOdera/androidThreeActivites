@@ -25,4 +25,5 @@
     <string name="gymnasium_category">Gymnasium Category</string>
     <string name="snack_bar_text">restore</string>
     <string name="snack_bar_undo">undo delete</string>
+    <string name="rating">Rating</string>
 </resources>
