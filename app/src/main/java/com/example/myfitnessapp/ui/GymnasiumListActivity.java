@@ -36,6 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
@@ -116,6 +117,12 @@ public class GymnasiumListActivity extends AppCompatActivity {
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+        try {
+            Field mCursorDrawableRes = TextView.class.getDeclaredField("mCursorDrawableRes");
+            mCursorDrawableRes.setAccessible(true);
+            mCursorDrawableRes.set(searchView, R.drawable.cursor); //This sets the cursor resource ID to 0 or @null which will make it visible on white background
+        } catch (Exception e) {
+        }
         searchView.setSubmitButtonEnabled(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
