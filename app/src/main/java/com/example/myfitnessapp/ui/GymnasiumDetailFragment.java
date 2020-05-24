@@ -79,7 +79,13 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_gymnasium_detail, container, false);
         ButterKnife.bind(this, view);
-        Picasso.get().load(mGymnasium.getImageUrl()).into(gymnasiumImage);
+        if(!mGymnasium.getImageUrl().isEmpty()){
+            Picasso.get().load(mGymnasium.getImageUrl()).into(gymnasiumImage);
+        }
+        else{
+            gymnasiumImage.setImageResource(R.drawable.bulls);
+        }
+
 
 
         List<String> categories = new ArrayList<>();
