@@ -4,7 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorButton"
     tools:context=".ui.RegistrationAccountActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:textSize="25dp"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -77,18 +86,18 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Sign up"
-            android:background="@color/colorAccent"
+            android:background="@color/cardview_dark_background"
             android:layout_marginTop="15dp"
-            android:textColor="@color/colorButton" />
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColor="@color/colorButton"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="15sp"
-            android:text="Already have an account? Log in here!"
+            android:text="@string/already_have_an_account_log_in_here"
             android:id="@+id/loginTextView"
             android:layout_gravity="center_horizontal" />
 
