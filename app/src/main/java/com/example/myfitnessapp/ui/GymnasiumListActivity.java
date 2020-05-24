@@ -164,6 +164,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
                     hideProgressBar();
                     hideErrorTextView();
                     Log.d(TAG, "Response Successful");
+                    assert response.body() != null;
                     gyms = response.body().getBusinesses();
                     mGymListAdapter = new GymListAdapter(GymnasiumListActivity.this, gyms);
                     mRecyclerView.setAdapter(mGymListAdapter);
