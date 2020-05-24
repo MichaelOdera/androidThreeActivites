@@ -28,4 +28,5 @@
     <string name="rating">Rating</string>
     <string name="there_are_no_videos_to_show_yet_enter_your_search_item_to_show">There are No Videos to Show yet, Enter your search item to show.</string>
     <string name="video_title">Video Title</string>
+    <string name="no_such_location_was_found">No such Location was found</string>
 </resources>

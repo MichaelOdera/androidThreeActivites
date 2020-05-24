@@ -1,5 +1,11 @@
 package com.example.myfitnessapp.network;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+
+import androidx.core.content.ContextCompat;
+
 import com.example.myfitnessapp.network.YelpApi;
 
 import java.io.IOException;
@@ -11,6 +17,7 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static androidx.core.content.ContextCompat.startActivity;
 import static com.example.myfitnessapp.BuildConfig.YELP_API_KEY;
 import static com.example.myfitnessapp.models.Constants.YELP_BASE_URL;
 
@@ -27,7 +34,7 @@ public class YelpClient {
                             Request newRequest  = chain.request().newBuilder()
                                     .addHeader("Authorization", YELP_API_KEY)
                                     .build();
-                            return chain.proceed(newRequest);
+                            return  chain.proceed(newRequest);
                         }
                     })
                     .build();

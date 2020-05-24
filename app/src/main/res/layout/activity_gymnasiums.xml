@@ -47,7 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/locationTextView"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
         android:visibility="gone" />
 
 

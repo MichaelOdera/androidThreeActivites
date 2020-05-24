@@ -3,6 +3,7 @@ package com.example.myfitnessapp.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -155,7 +156,11 @@ public class GymnasiumListActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NotNull Call<YelpBusinessesSearchResponse> call, @NotNull Response<YelpBusinessesSearchResponse> response) {
                 Log.d(TAG, "In the Override");
-                if (response.isSuccessful()) {
+                if(response.code() == 500 ){
+                    Intent errorIntent = new Intent(GymnasiumListActivity.this, ServerErrorActivity.class);
+                    startActivity(errorIntent);
+                }
+                else if (response.isSuccessful()) {
                     hideProgressBar();
                     hideErrorTextView();
                     Log.d(TAG, "Response Successful");
@@ -165,6 +170,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
                     RecyclerView.LayoutManager layoutManager =
                             new LinearLayoutManager(GymnasiumListActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.addItemDecoration(new DividerItemDecoration(GymnasiumListActivity.this, DividerItemDecoration.VERTICAL));
                     mRecyclerView.setHasFixedSize(true);
                     mRecyclerView.setVisibility(View.VISIBLE);
                 }else{

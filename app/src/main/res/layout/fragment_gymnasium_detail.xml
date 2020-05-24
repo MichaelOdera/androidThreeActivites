@@ -26,8 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:text="Gymnasium Name"
+                android:text="@string/gymnasium_name"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -49,7 +48,6 @@
                 android:text="@string/running_swimming"
                 android:id="@+id/categoryTextView"
                 android:layout_below="@+id/gymnasiumNameTextView"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/colorAccent"
                 android:textStyle="italic" />

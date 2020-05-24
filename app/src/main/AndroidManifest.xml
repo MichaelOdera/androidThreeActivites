@@ -8,11 +8,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/fitbackground"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.ServerErrorActivity"></activity>
         <activity android:name=".ui.YoutubePlayerActivity" />
         <activity android:name=".ui.SavedGymnasiumsListActivity" />
         <activity android:name=".ui.FitnessLoginActivity">
