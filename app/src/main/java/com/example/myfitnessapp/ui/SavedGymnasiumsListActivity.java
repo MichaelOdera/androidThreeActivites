@@ -2,6 +2,7 @@ package com.example.myfitnessapp.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,6 +42,7 @@ public class SavedGymnasiumsListActivity extends AppCompatActivity {
 
         mProgressBar.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.VISIBLE);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(SavedGymnasiumsListActivity.this, DividerItemDecoration.VERTICAL));
 
         mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS);
         setUpFirebaseAdapter();
