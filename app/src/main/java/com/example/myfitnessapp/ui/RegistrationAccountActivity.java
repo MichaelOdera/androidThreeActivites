@@ -133,6 +133,7 @@ public class RegistrationAccountActivity extends AppCompatActivity implements Vi
                         } else {
                             Toast.makeText(RegistrationAccountActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+                            mAuthProgressDialog.hide();
                         }
                     }
                 });

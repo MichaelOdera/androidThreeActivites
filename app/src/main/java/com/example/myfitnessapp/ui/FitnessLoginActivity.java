@@ -112,6 +112,7 @@ public class FitnessLoginActivity extends AppCompatActivity implements View.OnCl
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful()) {
+                            mAuthProgressDialog.hide();
                             Log.w(TAG, "signInWithEmail", task.getException());
                             Toast.makeText(FitnessLoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
