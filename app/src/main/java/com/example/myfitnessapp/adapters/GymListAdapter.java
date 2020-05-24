@@ -68,10 +68,16 @@ public class GymListAdapter extends RecyclerView.Adapter<GymListAdapter.Gymnasiu
 
         @SuppressLint("SetTextI18n")
         public void bindGymnasium(Business gymnasium){
-            Picasso.get().load(gymnasium.getImageUrl()).into(mGymnasiumImageView);
-            mGymnasiumNameTextView.setText(gymnasium.getName());
-            mCategoryTextView.setText(gymnasium.getCategories().get(0).getTitle());
-            mRatingTextView.setText("Rating: "+gymnasium.getRating()+"/10");
+            if(!gymnasium.getImageUrl().isEmpty()){
+                Picasso.get().load(gymnasium.getImageUrl()).into(mGymnasiumImageView);
+                mGymnasiumNameTextView.setText(gymnasium.getName());
+                mCategoryTextView.setText(gymnasium.getCategories().get(0).getTitle());
+                mRatingTextView.setText("Rating: "+gymnasium.getRating()+"/10");
+            }else{
+                mGymnasiumImageView.setImageResource(R.drawable.bulls);
+            }
+
+
         }
 
         @Override
