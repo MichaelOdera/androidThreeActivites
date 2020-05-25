@@ -74,9 +74,15 @@ public class  YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycle
         }
 
         public void bindSnippet(Item snippet) {
-            Picasso.get().load(snippet.getSnippet().getThumbnails().getDefault().getUrl()).into(mThumbNailImageView);
-            mVideoTitleTextView.setText(snippet.getSnippet().getTitle());
-            mDescriptionTextView.setText(snippet.getSnippet().getChannelTitle());
+            if(!snippet.getSnippet().getThumbnails().getDefault().getUrl().isEmpty()){
+                Picasso.get().load(snippet.getSnippet().getThumbnails().getDefault().getUrl()).into(mThumbNailImageView);
+                mVideoTitleTextView.setText(snippet.getSnippet().getTitle());
+                mDescriptionTextView.setText(snippet.getSnippet().getChannelTitle());
+            }
+            else {
+                mThumbNailImageView.setImageResource(R.drawable.fitness);
+            }
+
         }
 
         @Override
