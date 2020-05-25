@@ -30,4 +30,7 @@
     <string name="video_title">Video Title</string>
     <string name="no_such_location_was_found">No such Location was found</string>
     <string name="already_have_an_account_log_in_here">Already have an account? Log in here!</string>
+    <string name="description">Description</string>
+    <string name="thumbnail">TODO</string>
+    <string name="playerbutton">TODO</string>
 </resources>
