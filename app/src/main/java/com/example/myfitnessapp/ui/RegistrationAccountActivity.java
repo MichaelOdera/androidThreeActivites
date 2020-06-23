@@ -37,10 +37,8 @@ public class RegistrationAccountActivity extends AppCompatActivity implements Vi
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    @BindView(R.id.createUserButton)
-    Button mCreateUserButton;
-    @BindView(R.id.nameEditText)
-    EditText mNameEditText;
+    @BindView(R.id.createUserButton) Button mCreateUserButton;
+    @BindView(R.id.nameEditText) EditText mNameEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
     @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
@@ -179,7 +177,7 @@ public class RegistrationAccountActivity extends AppCompatActivity implements Vi
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, user.getDisplayName());
+                            Log.d(TAG, Objects.requireNonNull(user.getDisplayName()));
 
                         }
                     }

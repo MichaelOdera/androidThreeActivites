@@ -28,13 +28,10 @@ public class FitnessLoginActivity extends AppCompatActivity implements View.OnCl
 
     public static final String TAG = FitnessLoginActivity.class.getSimpleName();
 
-    @BindView(R.id.passwordLoginButton)
-    Button mPasswordLoginButton;
-    @BindView(R.id.emailEditText)
-    EditText mEmailEditText;
+    @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
+    @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
-    @BindView(R.id.registerTextView)
-    TextView mRegisterTextView;
+    @BindView(R.id.registerTextView) TextView mRegisterTextView;
 
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseAuth mAuth;

@@ -67,6 +67,7 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        assert getArguments() != null;
         mGymnasium = Parcels.unwrap(getArguments().getParcelable("gym"));
 
     }
