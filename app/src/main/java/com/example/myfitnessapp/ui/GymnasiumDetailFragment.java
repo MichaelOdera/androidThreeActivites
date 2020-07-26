@@ -19,6 +19,8 @@ import com.example.myfitnessapp.R;
 import com.example.myfitnessapp.models.Business;
 import com.example.myfitnessapp.models.Category;
 import com.example.myfitnessapp.models.Constants;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -138,10 +140,17 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
         }
 
         if(v == saveGymnasiumButton){
-            DatabaseReference restaurantRef = FirebaseDatabase
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            assert user != null;
+            String userID = user.getUid();
+
+            DatabaseReference gymnasiumRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_GYMNASIUMS);
-            restaurantRef.push().setValue(mGymnasium);
+                    .getReference(Constants.FIREBASE_CHILD_GYMNASIUMS)
+                    .child(userID);
+
+
+            gymnasiumRef.push().setValue(mGymnasium);
             Toast.makeText(getContext(), "Saved Gymnasium", Toast.LENGTH_SHORT).show();
         }
 
