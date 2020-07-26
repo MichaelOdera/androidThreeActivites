@@ -18,6 +18,8 @@ import com.example.myfitnessapp.models.Business;
 import com.example.myfitnessapp.models.Constants;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -44,7 +46,12 @@ public class SavedGymnasiumsListActivity extends AppCompatActivity {
         mRecyclerView.setVisibility(View.VISIBLE);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(SavedGymnasiumsListActivity.this, DividerItemDecoration.VERTICAL));
 
-        mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        assert user != null;
+        String uid = user.getUid();
+
+
+        mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS).child(uid);
         setUpFirebaseAdapter();
     }
 
