@@ -64,7 +64,11 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
-        mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS);
+        FirebaseUser dataBaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        assert dataBaseUser != null;
+        String uid = dataBaseUser.getUid();
+
+        mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS).child(uid);
         setUpFirebaseAdapter();
 
         mAuth = FirebaseAuth.getInstance();
