@@ -14,6 +14,8 @@ import com.example.myfitnessapp.R;
 import com.example.myfitnessapp.models.Business;
 import com.example.myfitnessapp.models.Constants;
 import com.example.myfitnessapp.ui.GymnasiumDetailActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,7 +56,11 @@ public class FirebaseGymnasiumsViewHolder extends RecyclerView.ViewHolder implem
     @Override
     public void onClick(View v) {
         final ArrayList<Business> gymnasiums = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        assert user != null;
+        String uid = user.getUid();
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS).child(uid);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
