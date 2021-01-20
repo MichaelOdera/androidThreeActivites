@@ -51,8 +51,9 @@ public class GymListAdapter extends RecyclerView.Adapter<GymListAdapter.Gymnasiu
         return mGymnasiums.size();
     }
 
-
+    @SuppressLint("NonConstantResourceId")
     public class GymnasiumViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
         @BindView(R.id.gymnasiumImageView) ImageView mGymnasiumImageView;
         @BindView(R.id.gymnasiumNameTextView) TextView mGymnasiumNameTextView;
         @BindView(R.id.categoryTextView) TextView mCategoryTextView;
@@ -68,7 +69,7 @@ public class GymListAdapter extends RecyclerView.Adapter<GymListAdapter.Gymnasiu
 
         @SuppressLint("SetTextI18n")
         public void bindGymnasium(Business gymnasium){
-            if(!gymnasium.getImageUrl().isEmpty()){
+            if(gymnasium.getImageUrl() != "" && !gymnasium.getImageUrl().isEmpty()){
                 Picasso.get().load(gymnasium.getImageUrl()).into(mGymnasiumImageView);
                 mGymnasiumNameTextView.setText(gymnasium.getName());
                 mCategoryTextView.setText(gymnasium.getCategories().get(0).getTitle());
@@ -76,6 +77,8 @@ public class GymListAdapter extends RecyclerView.Adapter<GymListAdapter.Gymnasiu
             }else{
                 mGymnasiumImageView.setImageResource(R.drawable.bulls);
             }
+
+
 
 
         }
