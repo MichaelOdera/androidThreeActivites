@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    package="com.example.myfitnessapp"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.michael.myfitnessapp"
     app:background="@color/lightThemePrimaryColourV3">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -19,34 +21,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.ServerErrorActivity" />
-        <activity android:name=".ui.YoutubePlayerActivity"/>
-        <activity android:name=".ui.SavedGymnasiumsListActivity" />
-        <activity android:name=".ui.FitnessLoginActivity">
+        <activity android:name="com.michael.myfitnessapp.ui.ServerErrorActivity" />
+        <activity android:name="com.michael.myfitnessapp.ui.YoutubePlayerActivity"/>
+        <activity android:name="com.michael.myfitnessapp.ui.SavedGymnasiumsListActivity" />
+        <activity android:name="com.michael.myfitnessapp.ui.FitnessLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.RegistrationAccountActivity" />
-        <activity android:name=".ui.YoutubeTutorialsActivity" />
-        <activity android:name=".ui.GymnasiumDetailActivity" />
+        <activity android:name="com.michael.myfitnessapp.ui.RegistrationAccountActivity" />
+        <activity android:name="com.michael.myfitnessapp.ui.YoutubeTutorialsActivity" />
+        <activity android:name="com.michael.myfitnessapp.ui.GymnasiumDetailActivity" />
         <activity
-            android:name=".ui.SearchGymsActivity"
+            android:name="com.michael.myfitnessapp.ui.SearchGymsActivity"
             android:theme="@style/NoActionBarTheme" />
-        <activity android:name=".ui.GymnasiumListActivity" />
-        <activity android:name=".ui.FavoritesActivity">
+        <activity android:name="com.michael.myfitnessapp.ui.GymnasiumListActivity" />
+        <activity android:name="com.michael.myfitnessapp.ui.FavoritesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.myfitnessapp.ui.DashboardActivity" />
+                android:value="com.michael.myfitnessapp.ui.DashboardActivity" />
         </activity>
-        <activity android:name=".ui.DashboardActivity">
+        <activity android:name="com.michael.myfitnessapp.ui.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.myfitnessapp.ui.MainActivity" />
+                android:value="com.michael.myfitnessapp.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.MainActivity" />
+        <activity android:name="com.michael.myfitnessapp.ui.MainActivity" />
     </application>
 
 </manifest>
