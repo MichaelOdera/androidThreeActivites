@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.view.View;
@@ -20,10 +21,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+@SuppressLint("NonConstantResourceId")
 public class GymnasiumDetailActivity extends AppCompatActivity{
-    @BindView(R.id.viewPager)
-    ViewPager mViewPager;
+
+    @BindView(R.id.viewPager) ViewPager mViewPager;
     private GymnasiumPagerAdapter gymnasiumPagerAdapter;
     List<Business> mGymnasiums;
 

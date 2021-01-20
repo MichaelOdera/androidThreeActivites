@@ -1,7 +1,9 @@
 <shape
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:opticalInsetRight="@dimen/material_emphasis_high_type"
-    android:shape="rectangle">
+    android:shape="rectangle"
+    tools:targetApi="q">
 
     <solid
         android:color="@color/white" />

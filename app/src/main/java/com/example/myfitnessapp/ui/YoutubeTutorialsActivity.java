@@ -1,34 +1,25 @@
 package com.example.myfitnessapp.ui;
 
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.SearchView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.net.Uri;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.MediaController;
-import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.VideoView;
-
-import static com.example.myfitnessapp.BuildConfig.GOOGLE_API_KEY;
-
 import com.example.myfitnessapp.R;
 import com.example.myfitnessapp.adapters.YoutubeRecyclerAdapter;
 import com.example.myfitnessapp.googlemodel.GoogleResponse;
 import com.example.myfitnessapp.googlemodel.Item;
-import com.example.myfitnessapp.googlemodel.Snippet;
 import com.example.myfitnessapp.network.YoutubeApi;
 import com.example.myfitnessapp.network.YoutubeClient;
 
@@ -40,7 +31,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.myfitnessapp.BuildConfig.GOOGLE_API_KEY;
+
+@SuppressLint("NonConstantResourceId")
 public class YoutubeTutorialsActivity extends AppCompatActivity {
+
     @BindView(R.id.searchVideosHeader) TextView mSearchVideosHeader;
     @BindView(R.id.youtubeRecyclerView) RecyclerView mYoutubeRecyclerView;
     public List<Item> mItems;

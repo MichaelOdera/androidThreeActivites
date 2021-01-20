@@ -13,7 +13,6 @@ import android.widget.EditText;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.myfitnessapp.R;
-import com.example.myfitnessapp.ui.DashboardActivity;
 
 public class RegistrationDialogFragment extends DialogFragment {
 
@@ -51,7 +50,7 @@ public class RegistrationDialogFragment extends DialogFragment {
                 submitNameButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mNameOfUser = (EditText) nameFormLayout.findViewById(R.id.nameEditText);
+                        mNameOfUser = nameFormLayout.findViewById(R.id.nameOfUserEnterEditText);
                         String gottenUserName = mNameOfUser.getText().toString();
                         Log.d("Now this is", gottenUserName);
                         if(gottenUserName != ""){
@@ -82,5 +81,17 @@ public class RegistrationDialogFragment extends DialogFragment {
             }
         });
         return builder.create();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        dismiss();
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+        dismiss();
     }
 }

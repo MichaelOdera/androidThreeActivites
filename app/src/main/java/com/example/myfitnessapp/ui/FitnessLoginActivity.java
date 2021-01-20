@@ -3,6 +3,7 @@ package com.example.myfitnessapp.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,10 +24,11 @@ import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+@SuppressLint("NonConstantResourceId")
 public class FitnessLoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     public static final String TAG = FitnessLoginActivity.class.getSimpleName();
+
 
     @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
     @BindView(R.id.emailEditText) EditText mEmailEditText;

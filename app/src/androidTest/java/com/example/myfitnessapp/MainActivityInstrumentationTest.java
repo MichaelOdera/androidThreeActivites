@@ -19,7 +19,6 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
@@ -58,10 +57,10 @@ public class MainActivityInstrumentationTest {
         assertTrue(testFragment instanceof RegistrationDialogFragment);
     }
 
-    @Test
-    public void checkThatTextViewIsVisible(){
-        onView(withId(R.id.appNameTextView)).check(matches(isDisplayed()));
-    }
+//    @Test
+//    public void checkThatTextViewIsVisible(){
+//        onView(withId(R.id.appNameTextView)).check(matches(isDisplayed()));
+//    }
 
     @Test
     public void checkIfPositiveButtonIsClickedCorrectlyOnDialogFragment(){
@@ -74,7 +73,7 @@ public class MainActivityInstrumentationTest {
         //String userName = "Clement";
         onView(withId(R.id.navigation_activities)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.nameEditText)).perform(typeText("Clement")).perform(closeSoftKeyboard());
+        onView(withId(R.id.nameOfUserEditText)).perform(typeText("Clement")).perform(closeSoftKeyboard());
     }
 
     @Test
@@ -82,7 +81,7 @@ public class MainActivityInstrumentationTest {
         String userName = "Clement";
         onView(withId(R.id.navigation_activities)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.nameEditText)).perform(typeText(userName)).perform(closeSoftKeyboard());
+        onView(withId(R.id.nameOfUserEditText)).perform(typeText(userName)).perform(closeSoftKeyboard());
 
         onView(withId(R.id.submitNameButton)).perform(click());
         onView(withId(R.id.userNameTextView)).check(matches
@@ -94,7 +93,7 @@ public class MainActivityInstrumentationTest {
         String userName = "Clement";
         onView(withId(R.id.navigation_activities)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.nameEditText)).perform(typeText(userName)).perform(closeSoftKeyboard());
+        onView(withId(R.id.nameOfUserEditText)).perform(typeText(userName)).perform(closeSoftKeyboard());
 
         onView(withId(R.id.submitNameButton)).perform(click());
         onView(withId(R.id.listView)).perform(click());

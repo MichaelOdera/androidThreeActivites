@@ -1,7 +1,6 @@
 package com.example.myfitnessapp.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,10 +16,11 @@ import butterknife.ButterKnife;
 
 import static com.example.myfitnessapp.models.Constants.GOOGLE_API_KEY;
 
+@SuppressLint("NonConstantResourceId")
 public class YoutubePlayerActivity extends YouTubeBaseActivity {
     private static final String TAG = YoutubePlayerActivity.class.getSimpleName();
-    @BindView(R.id.youtubePlayerView)
-    YouTubePlayerView mYoutubePlayerView;
+
+    @BindView(R.id.youtubePlayerView) YouTubePlayerView mYoutubePlayerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

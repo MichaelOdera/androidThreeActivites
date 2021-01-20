@@ -38,7 +38,7 @@ public class RegistrationAccountActivity extends AppCompatActivity implements Vi
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     @BindView(R.id.createUserButton) Button mCreateUserButton;
-    @BindView(R.id.nameEditText) EditText mNameEditText;
+    @BindView(R.id.nameOfUserEditText) EditText mNameEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
     @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
@@ -124,7 +124,7 @@ public class RegistrationAccountActivity extends AppCompatActivity implements Vi
                         if (task.isSuccessful()) {
                             mAuthProgressDialog.dismiss();
                             Log.d(TAG, "Authentication successful");
-                            createFirebaseUserProfile(Objects.requireNonNull(task.getResult().getUser()));
+                            createFirebaseUserProfile(Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getUser()));
                             Intent intent = new Intent(RegistrationAccountActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);

@@ -1,7 +1,7 @@
 package com.example.myfitnessapp.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,17 +37,16 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+@SuppressLint("NonConstantResourceId")
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference mGymnasiumsReference;
     private FirebaseRecyclerAdapter<Business, FirebaseGymnasiumsViewHolder> mFirebaseAdapter;
 
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+
+    @BindView(R.id.mainRecyclerView) RecyclerView mRecyclerView;
 
 
-    @BindView(R.id.bottom_navigation)
-    BottomNavigationView bottomNavigationView;
+    @BindView(R.id.bottom_navigation) BottomNavigationView bottomNavigationView;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;

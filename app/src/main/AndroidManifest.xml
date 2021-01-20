@@ -6,6 +6,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/fitbackground"
@@ -14,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.ServerErrorActivity" />
-        <activity android:name=".ui.YoutubePlayerActivity" />
+        <activity android:name=".ui.YoutubePlayerActivity"/>
         <activity android:name=".ui.SavedGymnasiumsListActivity" />
         <activity android:name=".ui.FitnessLoginActivity">
             <intent-filter>

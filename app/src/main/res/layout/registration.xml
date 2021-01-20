@@ -29,17 +29,19 @@
 
 
         <EditText
-            android:id="@+id/nameEditText"
+            android:id="@+id/nameOfUserEnterEditText"
             android:layout_width="150dp"
             android:layout_height="30sp"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/edit_text_border"
+            android:layout_marginStart="20dp"
+            android:background="@color/colorButton"
+            android:textColorHighlight="@color/white"
             android:hint="moses.."
             android:textAlignment="center"
-            android:textColor="@color/primaryDarkColor"
-            android:textColorHint="@color/primaryDarkColor"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/submitNameButton"

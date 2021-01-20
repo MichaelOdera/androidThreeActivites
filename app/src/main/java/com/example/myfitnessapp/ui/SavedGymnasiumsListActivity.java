@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,15 +26,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+@SuppressLint("NonConstantResourceId")
 public class SavedGymnasiumsListActivity extends AppCompatActivity {
     private DatabaseReference mGymnasiumsReference;
     private FirebaseRecyclerAdapter<Business, FirebaseGymnasiumsViewHolder> mFirebaseAdapter;
 
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
-    @BindView(R.id.progressBar)
-    ProgressBar mProgressBar;
+
+    @BindView(R.id.mainRecyclerView) RecyclerView mRecyclerView;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
 
     @Override

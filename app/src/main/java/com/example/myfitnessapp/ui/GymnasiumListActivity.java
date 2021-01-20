@@ -47,20 +47,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+@SuppressLint("NonConstantResourceId")
 public class GymnasiumListActivity extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
 
     private DatabaseReference mSearchedLocationReference;
 
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+
+    @BindView(R.id.mainRecyclerView) RecyclerView mRecyclerView;
     private GymListAdapter mGymListAdapter;
     public List<Business> gyms;
 
     @BindView(R.id.errorTextView) TextView mErrorTextView;
-    @BindView(R.id.progressBar)
-    ProgressBar mProgressBar;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
     public static final String TAG = GymnasiumListActivity.class.getSimpleName();
 

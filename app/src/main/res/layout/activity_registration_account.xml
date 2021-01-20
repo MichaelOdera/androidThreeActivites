@@ -25,7 +25,7 @@
         android:id="@+id/linearLayout">
 
         <EditText
-            android:id="@+id/nameEditText"
+            android:id="@+id/nameOfUserEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"

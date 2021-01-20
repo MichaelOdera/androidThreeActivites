@@ -1,5 +1,6 @@
 package com.example.myfitnessapp.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -55,16 +56,14 @@ public class  YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycle
     public int getItemCount() {
         return mItems.size();
     }
-
+    @SuppressLint("NonConstantResourceId")
     public class YoutubeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        @BindView(R.id.videoTitleTextView)
-        TextView mVideoTitleTextView;
+
+        @BindView(R.id.videoTitleTextView) TextView mVideoTitleTextView;
         @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
-        @BindView(R.id.youtubeThumbNail)
-        ImageView mThumbNailImageView;
-        @BindView(R.id.playVideoButton)
-        ImageButton mPlayerVideoButton;
+        @BindView(R.id.youtubeThumbNail) ImageView mThumbNailImageView;
+        @BindView(R.id.playVideoButton) ImageButton mPlayerVideoButton;
         public YoutubeViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

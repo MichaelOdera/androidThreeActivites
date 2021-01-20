@@ -37,17 +37,15 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
+@SuppressLint("NonConstantResourceId")
 public class GymnasiumDetailFragment extends Fragment implements View.OnClickListener{
-    @BindView(R.id.gymnasiumNameTextView)
-    TextView gymnasiumName;
-    @BindView(R.id.gymnasiumImageView)
-    ImageView gymnasiumImage;
+    @BindView(R.id.gymnasiumNameTextView) TextView gymnasiumName;
+    @BindView(R.id.gymnasiumImageView) ImageView gymnasiumImage;
     @BindView(R.id.ratingTextView) TextView gymnasiumRating;
     @BindView(R.id.categoryTextView) TextView gymnasiumService;
     @BindView(R.id.phoneTextView) TextView gymnasiumPhoneNumber;
     @BindView(R.id.addressTextView) TextView gymnasiumAddress;
-    @BindView(R.id.saveGymnasiumButton)
-    Button saveGymnasiumButton;
+    @BindView(R.id.saveGymnasiumButton) Button saveGymnasiumButton;
     @BindView(R.id.websiteTextView) TextView gymnasiumWebSite;
 
     private Business mGymnasium;
