@@ -61,8 +61,8 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'androidx.fragment:fragment:1.2.5'
-    debugImplementation 'androidx.fragment:fragment-testing:1.2.5'
+    implementation 'androidx.fragment:fragment:1.3.2'
+    debugImplementation 'androidx.fragment:fragment-testing:1.3.2'
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
@@ -77,22 +77,22 @@ dependencies {
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
 
     //Firebase
-    implementation 'com.google.firebase:firebase-database:19.6.0'
+    implementation 'com.google.firebase:firebase-database:19.7.0'
     implementation 'com.firebaseui:firebase-ui-database:3.3.1'
-    implementation 'com.google.firebase:firebase-analytics:18.0.1'
-    implementation 'com.google.firebase:firebase-firestore:22.0.1'
+    implementation 'com.google.firebase:firebase-analytics:18.0.2'
+    implementation 'com.google.firebase:firebase-firestore:22.1.2'
 
     //Google android material
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.3.0'
 
     //Add firebase SDK
-    implementation 'com.google.firebase:firebase-core:18.0.1'
+    implementation 'com.google.firebase:firebase-core:18.0.2'
 
     //firebase recyclerView
     implementation 'com.firebaseui:firebase-ui-database:3.3.1'
 
     //Firebase Authentication
-    implementation 'com.google.firebase:firebase-auth:20.0.2'
+    implementation 'com.google.firebase:firebase-auth:20.0.3'
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -23,14 +23,17 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class GymListAdapter extends RecyclerView.Adapter<GymListAdapter.GymnasiumViewHolder>{
     private List<Business> mGymnasiums;
     private Context mContext;
+    private OnClick mOnClick;
 
-    public GymListAdapter(Context context, List<Business> gymnasiums){
+    public GymListAdapter(Context context, List<Business> gymnasiums, OnClick onClick){
         mContext = context;
         mGymnasiums = gymnasiums;
+        mOnClick = onClick;
     }
 
     @NonNull
@@ -70,7 +73,7 @@ public class GymListAdapter extends RecyclerView.Adapter<GymListAdapter.Gymnasiu
         @SuppressLint("SetTextI18n")
         public void bindGymnasium(Business gymnasium){
             if(gymnasium.getImageUrl() != "" && !gymnasium.getImageUrl().isEmpty()){
-                Picasso.get().load(gymnasium.getImageUrl()).into(mGymnasiumImageView);
+                Picasso.get().load(gymnasium.getImageUrl().trim()).into(mGymnasiumImageView);
                 mGymnasiumNameTextView.setText(gymnasium.getName());
                 mCategoryTextView.setText(gymnasium.getCategories().get(0).getTitle());
                 mRatingTextView.setText("Rating: "+gymnasium.getRating()+"/10");
