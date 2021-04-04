@@ -2,6 +2,7 @@ package com.michael.myfitnessapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,8 +15,8 @@ import butterknife.ButterKnife;
 
 public class ServerErrorActivity extends AppCompatActivity implements View.OnClickListener{
 
-    @BindView(R.id.tryAgainButton)
-    Button mTryAgainButton;
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.tryAgainButton) Button mTryAgainButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -20,10 +20,11 @@ import com.michael.myfitnessapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+@SuppressLint("NonConstantResourceId")
 public class DashboardActivity extends AppCompatActivity {
 
-    private ArrayAdapter mAdapter;
+    private ArrayAdapter<Object> mAdapter;
+
 
     @BindView(R.id.userNameTextView)
     TextView mUserNameTextView;
@@ -31,11 +32,15 @@ public class DashboardActivity extends AppCompatActivity {
     ListView mListView;
     private EditText inputSearch;
 
-    private String[] activities = new String[] {"Running", "Press Ups",
+    private final String[] activities = new String[] {"Running", "Press Ups",
             "Pull Ups", "Push Ups", "Swimming", "Jogging",
             "Squats", "Banana Jumps", "Weight Lifting", "Hiking",
             "Frog jumps", "Star Jumps", "Skiing",
             "Commando crawls", "Back Stretching", "abs", "Nature walk"};
+
+    public DashboardActivity(ArrayAdapter<Object> mAdapter) {
+        this.mAdapter = mAdapter;
+    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -48,8 +53,8 @@ public class DashboardActivity extends AppCompatActivity {
         String gottenUserName = intent.getStringExtra("userName");
         mUserNameTextView.setText("Welcome "+ gottenUserName+". \nClick on activity to choose it as your Week's Favorite");
 
-        final ArrayAdapter adapter;
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, activities){
+
+        mAdapter = new ArrayAdapter<Object>(this, android.R.layout.simple_list_item_1, activities){
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view =super.getView(position, convertView, parent);
@@ -63,7 +68,7 @@ public class DashboardActivity extends AppCompatActivity {
                 return view;
             }
         };
-        mListView.setAdapter(adapter);
+        mListView.setAdapter(mAdapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -85,7 +90,7 @@ public class DashboardActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
                 // When user changed the Text
                 inputSearch.setTextColor(Color.rgb(255, 79, 0));
-                adapter.getFilter().filter(cs);
+                mAdapter.getFilter().filter(cs);
             }
 
             @Override

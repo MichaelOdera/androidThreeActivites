@@ -23,6 +23,8 @@ import com.michael.myfitnessapp.googlemodel.Item;
 import com.michael.myfitnessapp.network.YoutubeApi;
 import com.michael.myfitnessapp.network.YoutubeClient;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -87,7 +89,7 @@ public class YoutubeTutorialsActivity extends AppCompatActivity {
         call.enqueue(new Callback<GoogleResponse>() {
             @SuppressLint("SetTextI18n")
             @Override
-            public void onResponse(Call<GoogleResponse> call, Response<GoogleResponse> response) {
+            public void onResponse(@NotNull Call<GoogleResponse> call, @NotNull Response<GoogleResponse> response) {
                 if (response.isSuccessful()) {
                     mSearchVideosHeader.setVisibility(View.GONE);
                     mItems = response.body().getItems();
@@ -105,7 +107,7 @@ public class YoutubeTutorialsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<GoogleResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<GoogleResponse> call, @NotNull Throwable t) {
                 Log.d("FAILED", "failed to load__________success_on_Youtube");
 
             }

@@ -43,6 +43,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -53,6 +54,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
     private SharedPreferences.Editor mEditor;
 
     private DatabaseReference mSearchedLocationReference;
+    private OnClick onClick;
 
 
     @BindView(R.id.mainRecyclerView) RecyclerView mRecyclerView;
@@ -63,6 +65,10 @@ public class GymnasiumListActivity extends AppCompatActivity {
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
     public static final String TAG = GymnasiumListActivity.class.getSimpleName();
+
+    public GymnasiumListActivity(OnClick onClick) {
+        this.onClick = onClick;
+    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -98,6 +104,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void onLoadingShowCorrespondingMessage() {
         mProgressBar.setVisibility(View.GONE);
         mErrorTextView.setText("There are currently no Gymnasiums to show, Please Search location to show gymnasiums");
@@ -173,7 +180,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
                     Log.d(TAG, "Response Successful");
                     assert response.body() != null;
                     gyms = response.body().getBusinesses();
-                    mGymListAdapter = new GymListAdapter(GymnasiumListActivity.this, gyms);
+                    mGymListAdapter = new GymListAdapter(GymnasiumListActivity.this, gyms, onClick);
                     mRecyclerView.setAdapter(mGymListAdapter);
                     RecyclerView.LayoutManager layoutManager =
                             new LinearLayoutManager(GymnasiumListActivity.this);

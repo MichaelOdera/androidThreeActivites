@@ -3,6 +3,7 @@ package com.michael.myfitnessapp.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,7 +26,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+@SuppressLint("NonConstantResourceId")
 public class RegistrationAccountActivity extends AppCompatActivity implements View.OnClickListener{
 
     public static final String TAG = RegistrationAccountActivity.class.getSimpleName();
@@ -36,6 +37,7 @@ public class RegistrationAccountActivity extends AppCompatActivity implements Vi
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
 
     @BindView(R.id.createUserButton) Button mCreateUserButton;
     @BindView(R.id.nameOfUserEditText) EditText mNameEditText;

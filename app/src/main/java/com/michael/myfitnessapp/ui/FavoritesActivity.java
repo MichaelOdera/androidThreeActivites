@@ -17,20 +17,20 @@ import com.michael.myfitnessapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressLint("NonConstantResourceId")
 public class FavoritesActivity extends AppCompatActivity implements View.OnClickListener{
-    @BindView(R.id.favoriteExerciseTextView)
-    TextView mFavoriteExerciseTextView;
+
+    @BindView(R.id.favoriteExerciseTextView) TextView mFavoriteExerciseTextView;
 
 
-    @BindView(R.id.startButton)
-    Button mStartTimerButton;
+    @BindView(R.id.startButton) Button mStartTimerButton;
     @BindView(R.id.pauseButton) Button mPauseTimerButton;
     @BindView(R.id.timerValue) TextView mTimerReadings;
 
     private long startingTime = 0L;
     private Runnable updateTimerThread;
 
-    private Handler TimeCustomHandler = new Handler();
+    private final Handler TimeCustomHandler = new Handler();
 
     long timeInMilliseconds = 0L;
     long timeSwapBuffer = 0L;
