@@ -8,15 +8,6 @@
     tools:context=".ui.MainActivity">
 
 
-    <ImageView
-        android:id="@+id/countryFlag"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_above="@+id/mainRecyclerView"
-        tools:ignore="UnknownId"
-        android:contentDescription="@string/my_flag" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainRecyclerView"
@@ -24,6 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp" />
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -48,8 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @BindView(R.id.mainRecyclerView) RecyclerView mRecyclerView;
-    @BindView(R.id.countryFlag)
-    ImageView mFlagImageView;
+
 
 
     @BindView(R.id.bottom_navigation) BottomNavigationView bottomNavigationView;
@@ -64,14 +64,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Flags.init(this);
 
-        BitmapDrawable usFlag = Flags.forCountry("US");
-
-        System.out.println("My Flag >>>>>> >>>  ____ FLAGS " + usFlag.getBitmap().getHeight());
-
-
-        mFlagImageView.setImageDrawable(usFlag);
 
         bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));

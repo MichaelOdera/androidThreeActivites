@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.jsramraj.flags.Flags;
 import com.michael.myfitnessapp.R;
 import com.michael.myfitnessapp.models.Constants;
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +37,8 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
 
     @BindView(R.id.submitGymLocationButton) Button mGymSearchButton;
     @BindView(R.id.savedGymnasiumsButton) Button mSavedGymnasiumsButton;
+    @BindView(R.id.countryFlag)
+    ImageView mFlagImageView;
 
 
     private DatabaseReference mSearchedLocationReference;
@@ -47,6 +52,15 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
         ButterKnife.bind(this);
         mGymSearchButton.setOnClickListener(this);
         mSavedGymnasiumsButton.setOnClickListener(this);
+
+        Flags.init(SearchGymsActivity.this);
+
+        Bitmap usFlag = Flags.forCountry("US").getBitmap();
+
+        System.out.println("My Flag >>>>>> >>>  ____ FLAGS " + usFlag);
+
+
+        mFlagImageView.setImageBitmap(usFlag);
 
 
 
