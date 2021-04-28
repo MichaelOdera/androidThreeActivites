@@ -3,7 +3,9 @@ package com.michael.myfitnessapp.ui;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.jsramraj.flags.Flags;
 import com.michael.myfitnessapp.R;
 import com.michael.myfitnessapp.adapters.FirebaseGymnasiumsViewHolder;
 import com.michael.myfitnessapp.models.Business;
@@ -44,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     @BindView(R.id.mainRecyclerView) RecyclerView mRecyclerView;
+    @BindView(R.id.countryFlag)
+    ImageView mFlagImageView;
 
 
     @BindView(R.id.bottom_navigation) BottomNavigationView bottomNavigationView;
@@ -57,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        BitmapDrawable usFlag = Flags.forCountry("US");
+
+        mFlagImageView.setImageDrawable(usFlag);
 
         bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));

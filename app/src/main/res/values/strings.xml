@@ -33,4 +33,5 @@
     <string name="description">Description</string>
     <string name="thumbnail">TODO</string>
     <string name="playerbutton">TODO</string>
+    <string name="my_flag">My flag</string>
 </resources>
