@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         BitmapDrawable usFlag = Flags.forCountry("US");
 
+        System.out.println("My Flag >>>>>> >>>  ____ FLAGS " + usFlag.getBitmap().getHeight());
+
 
         mFlagImageView.setImageDrawable(usFlag);
 
