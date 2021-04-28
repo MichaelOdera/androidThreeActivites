@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:orientation="vertical">
 
         <ImageView
@@ -22,10 +22,17 @@
             android:src="@drawable/searchback"
             android:contentDescription="@string/todo" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="I can see you"/>
+
+
+
         <ImageView
             android:id="@+id/countryFlag"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@drawable/bolt"
             tools:ignore="UnknownId"
             android:contentDescription="@string/my_flag" />
