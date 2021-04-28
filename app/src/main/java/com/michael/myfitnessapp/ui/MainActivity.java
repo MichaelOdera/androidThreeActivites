@@ -64,7 +64,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        Flags.init(this);
+
         BitmapDrawable usFlag = Flags.forCountry("US");
+
 
         mFlagImageView.setImageDrawable(usFlag);
 
