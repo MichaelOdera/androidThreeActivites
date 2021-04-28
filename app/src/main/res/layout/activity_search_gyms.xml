@@ -22,11 +22,6 @@
             android:src="@drawable/searchback"
             android:contentDescription="@string/todo" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="I can see you"/>
-
 
 
         <ImageView
