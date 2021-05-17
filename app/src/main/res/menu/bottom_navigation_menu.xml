@@ -15,15 +15,15 @@
         android:background="@color/white"
         android:drawable="@color/colorAccent"
         android:title="@string/tutorials"/>
-    <item
-        android:id="@+id/navigation_activities"
-        android:icon="@drawable/ic_activities"
-        android:actionBarItemBackground="@drawable/selector"
-        android:background="@drawable/selector"
-        android:state_focused="true"
-        android:iconTint="@color/colorAccent"
-        android:state_pressed="true"
-        android:drawable="@color/colorText"
-        android:title="@string/activities" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_activities"-->
+<!--        android:icon="@drawable/ic_activities"-->
+<!--        android:actionBarItemBackground="@drawable/selector"-->
+<!--        android:background="@drawable/selector"-->
+<!--        android:state_focused="true"-->
+<!--        android:iconTint="@color/colorAccent"-->
+<!--        android:state_pressed="true"-->
+<!--        android:drawable="@color/colorText"-->
+<!--        android:title="@string/activities" />-->
 
 </menu>
