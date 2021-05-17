@@ -50,6 +50,10 @@ import retrofit2.Response;
 
 @SuppressLint("NonConstantResourceId")
 public class GymnasiumListActivity extends AppCompatActivity {
+//
+//    public GymnasiumListActivity(){
+//
+//    }
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
 
@@ -66,9 +70,9 @@ public class GymnasiumListActivity extends AppCompatActivity {
 
     public static final String TAG = GymnasiumListActivity.class.getSimpleName();
 
-    public GymnasiumListActivity(OnClick onClick) {
-        this.onClick = onClick;
-    }
+    //public GymnasiumListActivity(OnClick onClick) {
+//        this.onClick = onClick;
+//    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -119,7 +123,7 @@ public class GymnasiumListActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_search, menu);
         ButterKnife.bind(this);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(GymnasiumListActivity.this);
         mEditor = mSharedPreferences.edit();
 
         MenuItem menuItem = menu.findItem(R.id.action_search);

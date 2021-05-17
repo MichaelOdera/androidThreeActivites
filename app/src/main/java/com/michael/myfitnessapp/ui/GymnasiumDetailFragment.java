@@ -89,8 +89,11 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
             gymnasiumImage.setImageResource(R.drawable.bulls);
         }
 
-        if(mSaved.equals("saved")){
-            saveGymnasiumButton.setVisibility(View.GONE);
+        if(mSaved !=null){
+            if(mSaved.equals("saved")){
+                saveGymnasiumButton.setVisibility(View.GONE);
+            }
+
         }
 
 

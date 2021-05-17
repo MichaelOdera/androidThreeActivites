@@ -116,13 +116,13 @@ public class SearchGymsActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v){
-        if(v == mGymSearchButton ){
-            Animation animationZoomIn = AnimationUtils.loadAnimation(this,R.anim.zoom_in);
-            mGymSearchButton.startAnimation(animationZoomIn);
-            //String searchGymLocation = mGymSearchEditText.getText().toString();
-            Intent gymIntent = new Intent(SearchGymsActivity.this, GymnasiumListActivity.class);
-            startActivity(gymIntent);
-        }
+//        if(v == mGymSearchButton ){
+//            Animation animationZoomIn = AnimationUtils.loadAnimation(this,R.anim.zoom_in);
+//            mGymSearchButton.startAnimation(animationZoomIn);
+//            //String searchGymLocation = mGymSearchEditText.getText().toString();
+//            Intent gymIntent = new Intent(SearchGymsActivity.this, GymnasiumListActivity.class);
+//            startActivity(gymIntent);
+//        }
 
         if (v == mSavedGymnasiumsButton) {
             Animation bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.fades_in);

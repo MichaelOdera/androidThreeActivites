@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()) {
                         case R.id.navigation_gyms:
-                            startActivity(new Intent(MainActivity.this, SearchGymsActivity.class));
+                            startActivity(new Intent(MainActivity.this, GymnasiumListActivity.class));
 
                             return true;
 //                        case R.id.navigation_activities:
