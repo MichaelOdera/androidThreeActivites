@@ -69,8 +69,10 @@ public class FirebaseGymnasiumsViewHolder extends RecyclerView.ViewHolder implem
                 }
 
                 int itemPosition = getLayoutPosition();
+                String saved = "saved";
                 Intent intent = new Intent(mContext, GymnasiumDetailActivity.class);
                 intent.putExtra("position", itemPosition + "");
+                intent.putExtra("saved", saved);
                 intent.putExtra("gyms", Parcels.wrap(gymnasiums));
 
                 mContext.startActivity(intent);

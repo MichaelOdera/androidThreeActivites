@@ -33,9 +33,10 @@ public class GymnasiumDetailActivity extends AppCompatActivity{
 
         mGymnasiums = Parcels.unwrap(getIntent().getParcelableExtra("gyms"));
         int startingPosition = getIntent().getIntExtra("position", 0);
+        String saved = getIntent().getStringExtra("saved");
 
 
-        gymnasiumPagerAdapter = new GymnasiumPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mGymnasiums);
+        gymnasiumPagerAdapter = new GymnasiumPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mGymnasiums, saved);
         mViewPager.setAdapter(gymnasiumPagerAdapter);
         mViewPager.setCurrentItem(startingPosition);
     }

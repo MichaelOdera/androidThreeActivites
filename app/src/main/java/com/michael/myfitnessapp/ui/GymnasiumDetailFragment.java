@@ -48,6 +48,7 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
     @BindView(R.id.websiteTextView) TextView gymnasiumWebSite;
 
     private Business mGymnasium;
+    String mSaved;
 
 
 
@@ -55,10 +56,11 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
         // Required empty public constructor
     }
 
-    public static GymnasiumDetailFragment newInstance(Business gym){
+    public static GymnasiumDetailFragment newInstance(Business gym, String saved){
         GymnasiumDetailFragment gymnasiumDetailFragment = new GymnasiumDetailFragment();
         Bundle arguments = new Bundle();
         arguments.putParcelable("gym", Parcels.wrap(gym));
+        arguments.putString("saved", saved);
         gymnasiumDetailFragment.setArguments(arguments);
         return gymnasiumDetailFragment;
     }
@@ -68,6 +70,7 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
         super.onCreate(savedInstanceState);
         assert getArguments() != null;
         mGymnasium = Parcels.unwrap(getArguments().getParcelable("gym"));
+        mSaved = getArguments().getString("saved");
 
     }
 
@@ -84,6 +87,10 @@ public class GymnasiumDetailFragment extends Fragment implements View.OnClickLis
         }
         else{
             gymnasiumImage.setImageResource(R.drawable.bulls);
+        }
+
+        if(mSaved.equals("saved")){
+            saveGymnasiumButton.setVisibility(View.GONE);
         }
 
 

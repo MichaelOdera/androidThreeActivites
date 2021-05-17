@@ -127,16 +127,16 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, SearchGymsActivity.class));
 
                             return true;
-                        case R.id.navigation_activities:
-                            FragmentManager fm = getSupportFragmentManager();
-                            RegistrationDialogFragment registerDialogFragment = new RegistrationDialogFragment ();
-                            registerDialogFragment.show(fm, "registration");
+//                        case R.id.navigation_activities:
+//                            FragmentManager fm = getSupportFragmentManager();
+//                            RegistrationDialogFragment registerDialogFragment = new RegistrationDialogFragment ();
+//                            registerDialogFragment.show(fm, "registration");
 
-                            return true;
-//
-//                        case R.id.navigation_tutorials:
-//                            startActivity(new Intent(MainActivity.this, YoutubeTutorialsActivity.class));
 //                            return true;
+
+                        case R.id.navigation_tutorials:
+                            startActivity(new Intent(MainActivity.this, YoutubeTutorialsActivity.class));
+                            return true;
                     }
                     return false;
                 }
