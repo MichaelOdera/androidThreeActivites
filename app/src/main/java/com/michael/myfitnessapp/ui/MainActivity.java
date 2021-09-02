@@ -1,6 +1,7 @@
 package com.michael.myfitnessapp.ui;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    private ProgressDialog mDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
+        mDialog.show();
 
         bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));
@@ -72,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser dataBaseUser = FirebaseAuth.getInstance().getCurrentUser();
         assert dataBaseUser != null;
+        if(dataBaseUser == null){
+            mDialog.dismiss();
+            logout();
+        }
         String uid = dataBaseUser.getUid();
 
         mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS).child(uid);
@@ -81,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         mAuthListener = firebaseAuth -> {
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if (user != null) {
+                mDialog.hide();
                 Objects.requireNonNull(getSupportActionBar()).setTitle("Welcome, " + user.getDisplayName() + "!");
             } else {
 
@@ -127,12 +136,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, GymnasiumListActivity.class));
 
                             return true;
-//                        case R.id.navigation_activities:
-//                            FragmentManager fm = getSupportFragmentManager();
-//                            RegistrationDialogFragment registerDialogFragment = new RegistrationDialogFragment ();
-//                            registerDialogFragment.show(fm, "registration");
 
-//                            return true;
 
                         case R.id.navigation_tutorials:
                             startActivity(new Intent(MainActivity.this, YoutubeTutorialsActivity.class));
