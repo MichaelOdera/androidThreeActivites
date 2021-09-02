@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private ProgressDialog mDialog;
 
 
     @Override
@@ -68,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        mDialog.show();
-
         bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
@@ -77,13 +74,10 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser dataBaseUser = FirebaseAuth.getInstance().getCurrentUser();
         assert dataBaseUser != null;
         if(dataBaseUser == null){
-            mDialog.dismiss();
             logout();
         }
 
-        if(dataBaseUser != null){
-            mDialog.dismiss();
-        }
+
         String uid = dataBaseUser.getUid();
 
         mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS).child(uid);
@@ -93,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
         mAuthListener = firebaseAuth -> {
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if (user != null) {
-                mDialog.hide();
                 Objects.requireNonNull(getSupportActionBar()).setTitle("Welcome, " + user.getDisplayName() + "!");
             } else {
 
@@ -194,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
         if(mFirebaseAdapter != null) {
             mFirebaseAdapter.stopListening();
         }
-        mDialog.dismiss();
+
     }
 
 }
