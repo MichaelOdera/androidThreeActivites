@@ -190,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
         if(mFirebaseAdapter != null) {
             mFirebaseAdapter.stopListening();
         }
+        mDialog.dismiss();
     }
 
 }
