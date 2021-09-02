@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
             mDialog.dismiss();
             logout();
         }
+
+        if(dataBaseUser != null){
+            mDialog.dismiss();
+        }
         String uid = dataBaseUser.getUid();
 
         mGymnasiumsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GYMNASIUMS).child(uid);
